@@ -3,7 +3,7 @@ export const themeConfig = {
   // 站点信息
   siteMeta: {
     // 站点标题
-    title: "池鱼小栈",
+    title: "YXR Web?",
     // 站点描述
     description: "跨过晨昏线，便是永夜。",
     // 站点logo
@@ -17,7 +17,7 @@ export const themeConfig = {
       name: "池鱼",
       cover: "/images/logo/logo.webp",
       email: "kazukokawagawa@qq.com",
-      link: "https://chiyu.it",
+      link: "https://ddnsy.fun",
     },
   },
   // 备案信息
