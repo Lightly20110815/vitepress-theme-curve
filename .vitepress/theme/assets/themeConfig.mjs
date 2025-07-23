@@ -16,7 +16,7 @@ export const themeConfig = {
     author: {
       name: "池鱼",
       cover: "/images/logo/logo.webp",
-      email: "kazukokawagawa@qq.com",
+      email: "okawagawa@qq.com",
       link: "https://ddnsy.fun",
     },
   },
