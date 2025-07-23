@@ -1,23 +1,24 @@
 // 主题配置
 export const themeConfig = {
   // 站点信息
+  // 站点信息
   siteMeta: {
     // 站点标题
-    title: "YXR Web?",
+    title: "Sy's Digital Garden", // <--- 已修改
     // 站点描述
-    description: "跨过晨昏线，便是永夜。",
+    description: "Explore the boundaries of code and record the gravitational waves of thought.", // <--- 已修改
     // 站点logo
-    logo: "/images/logo/logo.webp",
+    logo: "/logo.png", // <--- 占位符路径
     // 站点地址
-    site: "https://chiyu.it",
+    site: "https://ddnsy.fun", // <--- 已修改
     // 语言
     lang: "zh-CN",
     // 作者
     author: {
-      name: "池鱼",
-      cover: "/images/logo/logo.webp",
-      email: "okawagawa@qq.com",
-      link: "https://ddnsy.fun",
+      name: "Sy", // <--- 已修改
+      cover: "/avatar.png", // <--- 占位符路径
+      email: "yangxingranapple@outlook.com", // <--- 已修改
+      link: "https://ddnsy.fun", // <--- 已修改
     },
   },
   // 备案信息
