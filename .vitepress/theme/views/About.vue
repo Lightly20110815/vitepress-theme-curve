@@ -213,22 +213,10 @@ const skillsData = [
     link: "https://developer.mozilla.org/zh-CN/docs/Web/HTML",
   },
   {
-    name: "CSS3",
-    color: "#563d7c",
-    icon: "css3",
-    link: "https://developer.mozilla.org/zh-CN/docs/Web/CSS",
-  },
-  {
     name: "Vue",
     color: "#41b883",
     icon: "vue",
     link: "https://cn.vuejs.org/",
-  },
-  {
-    name: "React",
-    color: "#149ECA",
-    icon: "react",
-    link: "https://zh-hans.reactjs.org/",
   },
   {
     name: "Node.js",
@@ -255,16 +243,10 @@ const skillsData = [
     link: "https://git-scm.com/",
   },
   {
-    name: "Photoshop",
-    color: "#31A8FF",
-    icon: "photoshop",
-    link: "https://www.adobe.com/cn/lead/creativecloud/business.html",
-  },
-  {
     name: "ChatGPT",
     color: "#4AA181",
     icon: "chatgpt",
-    link: "https://chat.openai.com/",
+    link: "https://chat.com/",
   },
 ];
 
