@@ -23,7 +23,7 @@ import Link from "@/views/Link.vue";
 
 - 名称：`池鱼小栈`
 - 描述：`｜д•´)!!`
-- 地址：`https://chiyu.it/`
+- 地址：`https:/chiyu.it/`
 - 头像：`https://chiyu.it/images/logo/logo.webp`
 - 站点图片：`麻烦自行拍摄（不加也行`
 
