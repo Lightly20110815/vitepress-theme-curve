@@ -154,18 +154,18 @@
       <div class="about-item child">
         <div
           class="about-item map image"
-          style="background-image: url(https://raw.chiyu.it/other/tc.png)"
+          style="background-image: url(https://api.ddnsy.fun/Location.png)"
         >
-          <span class="position">我现在住在 <strong>中国，江苏省，苏州市</strong></span>
+          <span class="position">我现在住在 <strong>中国，安徽省，合肥市</strong></span>
         </div>
         <div class="about-itsem info">
           <div class="info-item">
             <span class="info-name">诞生于</span>
-            <span class="info-num" style="--color: #43a6c6">2010</span>
+            <span class="info-num" style="--color: #43a6c6">2011</span>
           </div>
           <div class="info-item">
             <span class="info-name">生日</span>
-            <span class="info-num" style="--color: #dfac46">0907</span>
+            <span class="info-num" style="--color: #dfac46">0815</span>
           </div>
         </div>
       </div>
