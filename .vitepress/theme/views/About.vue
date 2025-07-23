@@ -34,7 +34,8 @@
             target="_blank"
           >
             <div class="skills-logo">
-              <i :class="`iconfont icon-${item.icon}`"></i>
+              <!-- 已修改：根据 item.custom 动态切换图标类名 -->
+              <i :class="item.custom ? `myicons myicon-${item.icon}` : `iconfont icon-${item.icon}`"></i>
             </div>
             <span class="skills-name">{{ item.name }}</span>
           </a>
@@ -95,14 +96,14 @@
         class="about-item like image"
         style="
           --color: #0c0e20;
-          background-image: url(#);
+          background-image: url(https://picsum.photos/800/400?random=1);
         "
       >
         <div class="image-content">
-          <span class="tip">#</span>
-          <span class="title2">#</span>
+          <span class="tip">✧</span>
+          <span class="title2">✧</span>
           <div class="image-desc">
-            <span class="left">#</span>
+            <span class="left">✧</span>
           </div>
         </div>
       </div>
@@ -110,14 +111,14 @@
         class="about-item like image"
         style="
           --color: #7b3c25;
-          background-image: url(#);
+          background-image: url(https://picsum.photos/800/400?random=2);
         "
       >
         <div class="image-content">
-          <span class="tip">#</span>
-          <span class="title2">#</span>
+          <span class="tip">✧</span>
+          <span class="title2">✧</span>
           <div class="image-desc">
-            <span class="left">#</span>
+            <span class="left">✧</span>
           </div>
         </div>
       </div>
@@ -130,7 +131,7 @@
         class="about-item static image"
         style="
           --color: #0f1114;
-          background-image: url(#);
+          background-image: url(https://picsum.photos/800/400?random=3);
         "
       >
         <div class="image-content">
@@ -173,19 +174,10 @@
     <!-- 心路历程 -->
     <div class="about-content" style="display: flex">
       <div class="about-item">
-        <span class="tip">关于这个破站</span>
-        <span class="title2">一个记录自己生活的站点</span>
+        <span class="tip">关于这个数字花园</span>
+        <span class="title2">一个记录与探索的空间</span>
         <p class="text">
-          首先感谢一下小恒提供的域名贡献
-        </p>
-        <p class="text">
-          写几句slogan好了
-        </p>
-        <p class="text">
-          <strong>跨过晨昏线，便是永夜。</strong>
-        </p>
-        <p class="text">
-          我爱你们。
+          <strong>Explore the boundaries of code and record the gravitational waves of thought.</strong>
         </p>
       </div>
     </div>
@@ -194,11 +186,12 @@
 
 <script setup>
 import { getStatistics } from "@/api";
+import { useData } from "vitepress";
+import { onMounted, ref } from "vue";
 
 const { theme } = useData();
 
 // 技能数据
-
 const skillsData = [
   {
     name: "JavaScript",
@@ -231,6 +224,13 @@ const skillsData = [
     link: "https://www.python.org/",
   },
   {
+    name: "C++", // <--- 新增的技能
+    color: "#00599C",
+    icon: "cplusplus", // <-- 假设您在Iconfont项目中的图标名为cplusplus
+    link: "https://isocpp.org/",
+    custom: true, // <--- 新增的自定义标记
+  },
+  {
     name: "Docker",
     color: "#2496f2",
     icon: "docker",
@@ -246,7 +246,7 @@ const skillsData = [
     name: "ChatGPT",
     color: "#4AA181",
     icon: "chatgpt",
-    link: "https://chat.com/",
+    link: "https://chat.openai.com/",
   },
 ];
 
@@ -255,8 +255,10 @@ const statisticsData = ref(null);
 
 // 获取站点统计数据
 const getStatisticsData = async () => {
-  const result = await getStatistics(theme.value.tongji["51la"]);
-  statisticsData.value = result;
+  if (theme.value.tongji && theme.value.tongji["51la"]) {
+    const result = await getStatistics(theme.value.tongji["51la"]);
+    statisticsData.value = result;
+  }
 };
 
 onMounted(() => {
@@ -400,7 +402,7 @@ onMounted(() => {
               margin-right: 8px;
               border-radius: 50%;
               background-color: var(--color);
-              .iconfont {
+              .iconfont, .myicons {
                 color: #fff;
               }
             }
@@ -581,6 +583,18 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
     }
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 </style>

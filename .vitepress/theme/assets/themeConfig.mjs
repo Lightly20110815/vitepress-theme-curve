@@ -28,6 +28,7 @@ export const themeConfig = {
   // 每页文章数据
   postSize: 5,
   // inject
+  // inject
   inject: {
     // 头部
     // https://vitepress.dev/zh/reference/site-config#head
@@ -88,13 +89,22 @@ export const themeConfig = {
           href: "https://cdn.jsdmirror.com/gh/kazukokawagawa/chiyupic@main/fonts/xiaolai.css",
         },
       ],
-      // iconfont
+      // iconfont (原作者的)
       [
         "link",
         {
           crossorigin: "anonymous",
           rel: "stylesheet",
           href: "https://cdn2.codesign.qq.com/icons/g5ZpEgx3z4VO6j2/latest/iconfont.css",
+        },
+      ],
+      // iconfont (您自己的 C++ 扩展包) <--- 已为您添加
+      [
+        "link",
+        {
+          crossorigin: "anonymous",
+          rel: "stylesheet",
+          href: "https://at.alicdn.com/t/c/font_4982617_bpbw30gpjso.css",
         },
       ],
       // Embed code
@@ -108,15 +118,6 @@ export const themeConfig = {
           rel: "stylesheet",
         },
       ],
-      // 预载 DocSearch
-      //[
-      //  "link",
-      //  {
-      //    href: "https://X5EBEZB53I-dsn.algolia.net",
-      //    rel: "preconnect",
-      //    crossorigin: "",
-      //  },
-     // ],
     ],
   },
   // 导航栏菜单
