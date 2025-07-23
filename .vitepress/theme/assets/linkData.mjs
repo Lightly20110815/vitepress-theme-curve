@@ -9,7 +9,7 @@ const linkData = [
       {
         name: "Sy's Digital Garden",
         avatar: "/logo.png",
-        desc: "Explore the boundaries of code and record the gravitational waves of thought.",
+        desc: "With you, through all.",
         url: "https://ddnsy.fun",
       },
     ],

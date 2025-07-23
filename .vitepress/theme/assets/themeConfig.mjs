@@ -4,25 +4,25 @@ export const themeConfig = {
   // 站点信息
   siteMeta: {
     // 站点标题
-    title: "Sy's Digital Garden",
+    title: "Sy's Digital Garden", // <--- 已修改
     // 站点描述
-    description: "Explore the boundaries of code and record the gravitational waves of thought.",
+    description: "Explore the boundaries of code and record the gravitational waves of thought.", // <--- 已修改
     // 站点logo
-    logo: "https://api.ddnsy.fun/logo.png", // <--- 已修改为您的新Logo
+    logo: "https://api.ddnsy.fun/logo.png", // <--- 占位符路径
     // 站点地址
-    site: "https://ddnsy.fun",
+    site: "https://ddnsy.fun", // <--- 已修改
     // 语言
     lang: "zh-CN",
     // 作者
     author: {
-      name: "Sy",
-      cover: "https://api.ddnsy.fun/logo.png", // <--- 作者头像也已修改为您的新Logo
-      email: "yangxingranapple@outlook.com",
-      link: "https://ddnsy.fun",
+      name: "Sy", // <--- 已修改
+      cover: "/avatar.png", // <--- 占位符路径
+      email: "yangxingranapple@outlook.com", // <--- 已修改
+      link: "https://ddnsy.fun", // <--- 已修改
     },
   },
   // 备案信息
-  icp: "萌ICP备20259222号",
+  icp: "萌ICP备20259222号 (chiyu.it)",
   // 建站日期
   since: "2025-07-22",
   // 每页文章数据
@@ -226,19 +226,19 @@ export const themeConfig = {
     social: [
       {
         icon: "email",
-        link: "mailto:kazukokawagawa@qq.com",
+        link: "mailto:yangxingranapple@outlook.com",
       },
       {
         icon: "github",
-        link: "https://www.github.com/kazukokawagawa/",
+        link: "https://github.com/Lightly20110815",
       },
       {
         icon: "telegram",
-        link: "https://t.me/Chiyuyu1314",
+        link: "https://t.me/Sy_Yann",
       },
       {
         icon: "bilibili",
-        link: "https://space.bilibili.com/546803670",
+        link: "https://space.bilibili.com/1548870900",
       },
       {
         icon: "qq",
@@ -246,7 +246,7 @@ export const themeConfig = {
       },
       {
         icon: "twitter-x",
-        link: "https://twitter.com/Chiyuyu520",
+        link: "https://x.com/yxrchina",
       },
     ],
     // sitemap
