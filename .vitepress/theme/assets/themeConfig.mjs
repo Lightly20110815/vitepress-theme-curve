@@ -308,7 +308,8 @@ export const themeConfig = {
     twikoo: {
       // 必填，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
       js: "https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js",
-      envId: "https://twikoo.20100907.xyz",
+      // 环境ID，已为您替换
+      envId: "https://twiko1.vercel.app", // <--- 已修改为您的专属评论服务地址
       // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
       region: "",
       lang: "zh-CN",
@@ -365,7 +366,7 @@ export const themeConfig = {
     // url
     url: "https://meting.20100907.xyz/api",
     // id
-    id: 13470307260,
+    id: 14022768906, // <--- 已修改为您的歌单ID
     // netease / tencent / kugou
     server: "netease",
     // playlist / album / song
@@ -424,7 +425,8 @@ export const themeConfig = {
     ],
   },
   // 站点统计
+  // 站点统计
   tongji: {
-    "51la": "3M1I52LMkdPIgpya",
+    "51la": "3MtrQOhuvEl8wjgK", // <--- 已修改为您的ID
   },
 };
