@@ -7,10 +7,10 @@ const linkData = [
     typeDesc: "自己的东西",
     typeList: [
       {
-        name: "池鱼小栈",
-        avatar: "/images/logo/logo.webp",
-        desc: "｜д•´)!!",
-        url: "https://chiyu.it",
+        name: "Sy's Digital Garden",
+        avatar: "/logo.png",
+        desc: "Explore the boundaries of code and record the gravitational waves of thought.",
+        url: "https://ddnsy.fun",
       },
     ],
   },
@@ -20,39 +20,16 @@ const linkData = [
     typeName: "小伙伴们",
     typeDesc: "我们在一起，共同进步",
     typeList: [
+      // <--- 已为您添加池鱼小栈的链接
       {
-        name: "1zkn",
-        avatar: "/images/friend/zkn.jpeg",
-        desc: "在技术与游戏世界中不断探索的小小冒险家",
-        url: "https://zkn.moe",
-      },
-      {
-        name: "5had0w",
-        avatar: "/images/friend/5had0w.png",
-        desc: "一个游走在互联网边缘的影子，希望在这个世界留下一点痕迹。",
-        url: "https://www.5had0w.com/",
-      },
-      {
-        name: "洛雨",
-        avatar: "/images/friend/luoyu.jpg",
-        desc: "历史终将证明一切",
-        url: "https://luotianyi.eu/",
-      },
-      {
-        name: "洋洋",
-        avatar: "/images/friend/yangy.png",
-        desc: "洋洋的小小Blog",
-        url: "https://yangy.co/",
-      },
-      {
-        name: "幽默的小刘",
-        avatar: "/images/friend/lzch.jpg",
-        desc: "小刘的小小技术blog",
-        url: "https://www.lzch.top/",
+        name: "池鱼小栈",
+        avatar: "/images/logo/logo.webp",
+        desc: "｜д•´)!!",
+        url: "https://chiyu.it",
       },
     ],
   },
-    // 丢失
+   // 丢失
  // {
   //  type: "lost",
    // typeName: "走丢了",
