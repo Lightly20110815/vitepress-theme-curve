@@ -22,7 +22,7 @@ export const themeConfig = {
     },
   },
   // 备案信息
-  icp: "萌ICP备20259222号",
+  icp: "萌ICP备20259222号 (chiyu.it)",
   // 建站日期
   since: "2025-07-22",
   // 每页文章数据
@@ -226,19 +226,19 @@ export const themeConfig = {
     social: [
       {
         icon: "email",
-        link: "mailto:kazukokawagawa@qq.com",
+        link: "mailto:yangxingranapple@outlook.com",
       },
       {
         icon: "github",
-        link: "https://www.github.com/kazukokawagawa/",
+        link: "https://github.com/Lightly20110815",
       },
       {
         icon: "telegram",
-        link: "https://t.me/Chiyuyu1314",
+        link: "https://t.me/Sy_Yann",
       },
       {
         icon: "bilibili",
-        link: "https://space.bilibili.com/546803670",
+        link: "https://space.bilibili.com/1548870900",
       },
       {
         icon: "qq",
@@ -246,7 +246,7 @@ export const themeConfig = {
       },
       {
         icon: "twitter-x",
-        link: "https://twitter.com/Chiyuyu520",
+        link: "https://x.com/yxrchina",
       },
     ],
     // sitemap
