@@ -1,14 +1,26 @@
 <template>
   <div class="about">
     <h1 class="title">关于本站</h1>
-    <div class="about-content" style="grid-template-columns: 2fr 3fr">
+    <div class="about-content" style="grid-template-columns: 3fr 2fr">
       <!-- 介绍 -->
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你👋</span>
         <span class="text2 title2">我是 Sy Yann</span>
         <span class="text3">是一名❄❄❄❄???算了我也不知道?</span>
       </div>
+      <!-- 追求 -->
+      <!--
+      <div class="about-item pursuit">
+        <span class="tip">#</span>
+        <span class="title2">#</span>
+        <span class="title2">#</span>
+        <span class="title2">#</span>
+      </div>
+    </div>
+    <div class="about-content" style="grid-template-columns: 2fr 3fr">
+      -->
       <!-- 技能 -->
+
       <div class="about-item skills">
         <span class="tip">技能</span>
         <span class="title2">我不会的玩意</span>
@@ -22,16 +34,99 @@
             target="_blank"
           >
             <div class="skills-logo">
+              <!-- 已修改：根据 item.custom 动态切换图标类名 -->
               <i :class="item.custom ? `myicons myicon-${item.icon}` : `iconfont icon-${item.icon}`"></i>
             </div>
             <span class="skills-name">{{ item.name }}</span>
           </a>
         </div>
       </div>
+
+      <!-- 生涯 -->
+       <!--
+      <div class="about-item career">
+        <span class="tip">生涯</span>
+        <span class="title2">
+          <i>無限進步</i>
+        </span>
+        <div class="list">
+          <span class="list-item" style="--color: #357ef5">#</span>
+          <span class="list-item" style="--color: #eb372a">#</span>
+        </div>
+        <img
+          class="career-img"
+          src="https://pic.efefee.cn/uploads/2024/02/22/65d71db18bcf9.png"
+          alt="career"
+        />
+      </div>
     </div>
-    <!-- 占位符卡片已移除 -->
+    <div class="about-content" style="grid-template-columns: 3fr 2fr">
+      -->
+      <!-- 性格 -->
+       <!--
+      <div class="about-item character" style="--color: #4298b4">
+        <span class="tip">#</span>
+        <span class="title2">#</span>
+        <span class="title2" style="color: var(--color)">#</span>
+        <span class="more">
+          在
+          <a href="#" target="_blank">16personalities</a>
+          了解更多关于
+          <a href="#" target="_blank">
+            #
+          </a>
+        </span>
+        <img
+          src="#"
+          alt="male"
+          class="male"
+        />
+      </div>
+    -->
+      <!-- 座右铭 -->
+      <!--
+      <div class="about-item">
+        <span class="tip">#</span>
+        <span class="title1" style="margin-top: 20px">#，</span>
+        <span class="title2">#。</span>
+      </div>
+    </div>
+    <div class="about-content" style="grid-template-columns: 1fr 1fr">
+      <div
+        class="about-item like image"
+        style="
+          --color: #0c0e20;
+          background-image: url(https://picsum.photos/800/400?random=1);
+        "
+      >
+        <div class="image-content">
+          <span class="tip">✧</span>
+          <span class="title2">✧</span>
+          <div class="image-desc">
+            <span class="left">✧</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="about-item like image"
+        style="
+          --color: #7b3c25;
+          background-image: url(https://picsum.photos/800/400?random=2);
+        "
+      >
+        <div class="image-content">
+          <span class="tip">✧</span>
+          <span class="title2">✧</span>
+          <div class="image-desc">
+            <span class="left">✧</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
+    -->
       <!-- 数据 -->
+
       <div
         class="about-item static image"
         style="
@@ -84,14 +179,6 @@
         <p class="text">
           <strong>Explore the boundaries of code and record the gravitational waves of thought.</strong>
         </p>
-      </div>
-    </div>
-    <!-- 座右铭 -->
-    <div class="about-content" style="display: flex">
-      <div class="about-item" style="width: 100%;">
-        <span class="tip">座右铭</span>
-        <span class="title1" style="margin-top: 20px">与你进退，</span>
-        <span class="title2">也共鸣。</span>
       </div>
     </div>
   </div>
