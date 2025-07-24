@@ -196,7 +196,7 @@
         </div>
         <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
             <span class="tip">生</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">08月</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">8月</span>
         </div>
         <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
             <span class="tip">于</span>
