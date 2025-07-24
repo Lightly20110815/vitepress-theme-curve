@@ -16,11 +16,10 @@
         <span class="title2">#</span>
         <span class="title2">#</span>
       </div>
+      -->
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
-      -->
       <!-- 技能 -->
-
       <div class="about-item skills">
         <span class="tip">技能</span>
         <span class="title2">我不会的玩意</span>
@@ -34,14 +33,12 @@
             target="_blank"
           >
             <div class="skills-logo">
-              <!-- 已修改：根据 item.custom 动态切换图标类名 -->
               <i :class="item.custom ? `myicons myicon-${item.icon}` : `iconfont icon-${item.icon}`"></i>
             </div>
             <span class="skills-name">{{ item.name }}</span>
           </a>
         </div>
       </div>
-
       <!-- 生涯 -->
        <!--
       <div class="about-item career">
@@ -59,9 +56,9 @@
           alt="career"
         />
       </div>
+      -->
     </div>
     <div class="about-content" style="grid-template-columns: 3fr 2fr">
-      -->
       <!-- 性格 -->
        <!--
       <div class="about-item character" style="--color: #4298b4">
@@ -82,16 +79,31 @@
           class="male"
         />
       </div>
-    -->
+      -->
       <!-- 座右铭 -->
-      <!--
       <div class="about-item">
-        <span class="tip">#</span>
-        <span class="title1" style="margin-top: 20px">#，</span>
-        <span class="title2">#。</span>
+        <span class="tip">座右铭</span>
+        <span class="title1" style="margin-top: 20px">与你进退，</span>
+        <span class="title2">也共鸣。</span>
       </div>
     </div>
-    <div class="about-content" style="grid-template-columns: 1fr 1fr">
+    <div class="about-content" style="grid-template-columns: 1fr 1fr 1fr">
+      <!-- 游戏偏好 -->
+      <div
+        class="about-item like image"
+        style="
+          --color: #537098;
+          background-image: url(https://source.unsplash.com/800x400/?genshin,impact);
+        "
+      >
+        <div class="image-content">
+          <span class="tip">游戏偏好</span>
+          <span class="title2">原神</span>
+          <div class="image-desc">
+            <span class="left">Genshin Impact</span>
+          </div>
+        </div>
+      </div>
       <div
         class="about-item like image"
         style="
@@ -124,9 +136,7 @@
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
-    -->
       <!-- 数据 -->
-
       <div
         class="about-item static image"
         style="
