@@ -87,52 +87,22 @@
         <span class="title2">也共鸣。</span>
       </div>
     </div>
-    <div class="about-content" style="grid-template-columns: 1fr 1fr 1fr">
+    <div class="about-content" style="grid-template-columns: 1fr 1fr">
       <!-- 游戏偏好 -->
       <div
-        class="about-item like image"
-        style="
-          --color: #537098;
-          background-image: url(https://source.unsplash.com/800x400/?genshin,impact);
-        "
+        class="about-item like"
+        style="--color: #537098; justify-content: center; align-items: center; text-align: center;"
       >
-        <div class="image-content">
-          <span class="tip">游戏偏好</span>
-          <span class="title2">原神</span>
-          <div class="image-desc">
-            <span class="left">Genshin Impact</span>
-          </div>
-        </div>
+        <span class="tip">游戏偏好</span>
+        <span class="title2" style="margin-right: 0;">COLORFUL STAGE</span>
       </div>
+      <!-- 音乐偏好 -->
       <div
-        class="about-item like image"
-        style="
-          --color: #0c0e20;
-          background-image: url(https://picsum.photos/800/400?random=1);
-        "
+        class="about-item like"
+        style="--color: #3dd2c3; justify-content: center; align-items: center; text-align: center;"
       >
-        <div class="image-content">
-          <span class="tip">✧</span>
-          <span class="title2">✧</span>
-          <div class="image-desc">
-            <span class="left">✧</span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="about-item like image"
-        style="
-          --color: #7b3c25;
-          background-image: url(https://picsum.photos/800/400?random=2);
-        "
-      >
-        <div class="image-content">
-          <span class="tip">✧</span>
-          <span class="title2">✧</span>
-          <div class="image-desc">
-            <span class="left">✧</span>
-          </div>
-        </div>
+        <span class="tip">音乐偏好</span>
+        <span class="title2" style="margin-right: 0;">VOCALOID</span>
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
