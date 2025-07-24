@@ -189,14 +189,18 @@
             <span class="title2" style="margin-top: 20px; margin-right: 0;">COLORFUL STAGE</span>
         </div>
     </div>
-    <div class="about-content" style="grid-template-columns: 1fr 1fr">
+    <div class="about-content" style="grid-template-columns: 1fr 1fr 1fr">
         <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-            <span class="tip">诞生于</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">2011</span>
+            <span class="tip">诞</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">2011年</span>
         </div>
         <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-            <span class="tip">日期</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">08/15</span>
+            <span class="tip">生</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">08月</span>
+        </div>
+        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+            <span class="tip">于</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">15日</span>
         </div>
     </div>
   </div>
