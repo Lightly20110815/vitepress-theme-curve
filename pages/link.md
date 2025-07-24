@@ -22,14 +22,14 @@ import Link from "@/views/Link.vue";
 ### 我的友链信息
 
 - 名称：`Sy's Digital Garden`
-- 描述：`Explore the boundaries of code and record the gravitational waves of thought.`
+- 描述：`With you, through all.`
 - 地址：`https://ddnsy.fun/`
-- 头像：`https://ddnsy.fun/logo.png`
+- 头像：`https://api.ddnsy.fun/clogo.png`
 - 站点图片：`None?`
 
 ```yml
 name: Sy's Digital Garden
-desc: Explore the boundaries of code and record the gravitational waves of thought.
+desc: With you, through all.
 url: [https://ddnsy.fun/](https://ddnsy.fun/)
-avatar: [https://ddnsy.fun/logo.png](https://ddnsy.fun/logo.png)
+avatar: [https://api.ddnsy.fun/clogo.png](https://api.ddnsy.fun/clogo.png)
 screenshot: None?
