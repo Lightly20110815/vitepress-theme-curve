@@ -226,7 +226,7 @@ const skillsData = [
   {
     name: "C++", // <--- 新增的技能
     color: "#00599C",
-    icon: "cplusplus", // <-- 假设您在Iconfont项目中的图标名为cplusplus
+    icon: "C++", // <-- 假设您在Iconfont项目中的图标名为cplusplus
     link: "https://isocpp.org/",
     custom: true, // <--- 新增的自定义标记
   },
