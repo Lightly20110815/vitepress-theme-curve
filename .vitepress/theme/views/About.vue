@@ -159,16 +159,6 @@
         >
           <span class="position">我现在住在 <strong>中国，安徽省，合肥市</strong></span>
         </div>
-        <div class="about-itsem info">
-          <div class="info-item">
-            <span class="info-name">诞生于</span>
-            <span class="info-num" style="--color: #43a6c6">2011</span>
-          </div>
-          <div class="info-item">
-            <span class="info-name">生日</span>
-            <span class="info-num" style="--color: #dfac46">0815</span>
-          </div>
-        </div>
       </div>
     </div>
     <!-- 心路历程 -->
@@ -197,6 +187,16 @@
         <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
             <span class="tip">喜欢的游戏</span>
             <span class="title2" style="margin-top: 20px; margin-right: 0;">COLORFUL STAGE</span>
+        </div>
+    </div>
+    <div class="about-content" style="grid-template-columns: 1fr 1fr">
+        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+            <span class="tip">诞生于</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">2011</span>
+        </div>
+        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+            <span class="tip">日期</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">08/15</span>
         </div>
     </div>
   </div>
