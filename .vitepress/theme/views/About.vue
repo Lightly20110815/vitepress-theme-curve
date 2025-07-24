@@ -174,11 +174,19 @@
     <!-- 心路历程 -->
     <div class="about-content" style="display: flex">
       <div class="about-item">
-        <span class="tip">关于这个数字花园</span>
-        <span class="title2">一个记录与探索的空间</span>
+        <span class="tip">关于这个Digital Garden</span>
+        <span class="title2">一座收容内心喧嚣的孤岛</span>
         <p class="text">
-          <strong>Explore the boundaries of code and record the gravitational waves of thought.</strong>
+          把所有破碎的呓语，说给潮汐和自己听。
         </p>
+      </div>
+    </div>
+    <!-- 座右铭 -->
+    <div class="about-content" style="display: flex">
+      <div class="about-item" style="width: 100%;">
+        <span class="tip">座右铭</span>
+        <span class="title1" style="margin-top: 20px">与你进退，</span>
+        <span class="title2">也共鸣。</span>
       </div>
     </div>
   </div>
