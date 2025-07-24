@@ -160,37 +160,37 @@ export const themeConfig = {
       name: "项目",
       list: [
         {
-          icon: "/images/logo/logo.webp",
+          icon: "https://api.ddnsy.fun/clogo.png",
           name: "主站",
           url: "/",
         },
         {
-          icon: "/images/logo/other/hot.png",
-          name: "热榜",
+          icon: "https://api.ddnsy.fun/hot.jpg",
+          name: "热榜 By 池鱼鱼",
           url: "https://hot.chiyu.it",
         },
         {
-          icon: "/images/logo/other/nav.png",
-          name: "Nav",
+          icon: "https://api.ddnsy.fun/nav.jpg",
+          name: "Nav By 池鱼鱼",
           url: "https://nav.chiyu.it",
         },
       ],
     },
-    {
-      name: "服务",
-      list: [
-        {
-          icon: "/images/uptime-favicon.ico",
-          name: "检测",
-          url: "https://status.chiyu.it",
-        },
-        {
-          icon: "/images/logo/logo.webp",
-          name: "镜像站",
-          url: "https://backup.chiyu.it",
-        },
-      ],
-    },
+    // {
+    //   name: "服务",
+    //   list: [
+    //     {
+    //       icon: "/images/uptime-favicon.ico",
+    //       name: "检测",
+    //       url: "https://status.chiyu.it",
+    //     },
+    //     {
+    //       icon: "/images/logo/logo.webp",
+    //       name: "镜像站",
+    //       url: "https://backup.chiyu.it",
+    //     },
+    //   ],
+    // },
   //  {
    //   name: "项目",
    //   list: [
