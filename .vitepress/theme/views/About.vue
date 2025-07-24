@@ -189,6 +189,16 @@
         <span class="title2">也共鸣。</span>
       </div>
     </div>
+    <div class="about-content" style="grid-template-columns: 1fr 1fr">
+        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+            <span class="tip">喜欢的音乐风格</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">VOCALOID</span>
+        </div>
+        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+            <span class="tip">喜欢的游戏</span>
+            <span class="title2" style="margin-top: 20px; margin-right: 0;">COLORFUL STAGE</span>
+        </div>
+    </div>
   </div>
 </template>
 
