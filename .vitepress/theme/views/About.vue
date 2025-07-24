@@ -1,24 +1,13 @@
 <template>
   <div class="about">
     <h1 class="title">关于本站</h1>
-    <div class="about-content" style="grid-template-columns: 3fr 2fr">
+    <div class="about-content" style="grid-template-columns: 2fr 3fr">
       <!-- 介绍 -->
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你👋</span>
         <span class="text2 title2">我是 Sy Yann</span>
         <span class="text3">是一名❄❄❄❄???算了我也不知道?</span>
       </div>
-      <!-- 追求 -->
-      <!--
-      <div class="about-item pursuit">
-        <span class="tip">#</span>
-        <span class="title2">#</span>
-        <span class="title2">#</span>
-        <span class="title2">#</span>
-      </div>
-      -->
-    </div>
-    <div class="about-content" style="grid-template-columns: 2fr 3fr">
       <!-- 技能 -->
       <div class="about-item skills">
         <span class="tip">技能</span>
@@ -39,24 +28,6 @@
           </a>
         </div>
       </div>
-      <!-- 生涯 -->
-       <!--
-      <div class="about-item career">
-        <span class="tip">生涯</span>
-        <span class="title2">
-          <i>無限進步</i>
-        </span>
-        <div class="list">
-          <span class="list-item" style="--color: #357ef5">#</span>
-          <span class="list-item" style="--color: #eb372a">#</span>
-        </div>
-        <img
-          class="career-img"
-          src="https://pic.efefee.cn/uploads/2024/02/22/65d71db18bcf9.png"
-          alt="career"
-        />
-      </div>
-      -->
     </div>
     <!-- 占位符卡片已移除 -->
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
