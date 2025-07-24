@@ -6,9 +6,9 @@ export const themeConfig = {
     // 站点标题
     title: "Sy's Digital Garden", // <--- 已修改
     // 站点描述
-    description: "Explore the boundaries of code and record the gravitational waves of thought.", // <--- 已修改
+    description: "With you, through all.", // <--- 已修改
     // 站点logo
-    logo: "https://api.ddnsy.fun/logo.png", // <--- 占位符路径
+    logo: "https://api.ddnsy.fun/clogo.png", // <--- 占位符路径
     // 站点地址
     site: "https://ddnsy.fun", // <--- 已修改
     // 语言
