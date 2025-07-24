@@ -242,7 +242,7 @@ export const themeConfig = {
       },
       {
         icon: "qq",
-        link: "https://res.abeim.cn/api/qq/?qq=3985726818",
+        link: "https://res.abeim.cn/api/qq/?qq=2473665578",
       },
       {
         icon: "twitter-x",
@@ -338,14 +338,6 @@ export const themeConfig = {
       data: {
         name: "生日",
         date: "2025-08-15",
-      },
-    },
-    countDown1: {
-      enable: true,
-      // 倒计时日期
-      data: {
-        name: "大罢免",
-        date: "2025-07-26",
       },
     },
     // 站点数据
