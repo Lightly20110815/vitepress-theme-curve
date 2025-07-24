@@ -263,7 +263,7 @@ export const themeConfig = {
       {
         text: "项目",
         items: [
-          { text: "本站源码 By 鱼鱼&Curve", link: "https://github.com/kazukokawagawa/vitepress-theme-curve", newTab: true },
+          { text: "本站源码", link: "https://github.com/kazukokawagawa/vitepress-theme-curve", newTab: true },
         ],
       },
       //{
