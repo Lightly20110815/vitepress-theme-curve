@@ -58,35 +58,6 @@
       </div>
       -->
     </div>
-    <div class="about-content" style="grid-template-columns: 3fr 2fr">
-      <!-- 性格 -->
-       <!--
-      <div class="about-item character" style="--color: #4298b4">
-        <span class="tip">#</span>
-        <span class="title2">#</span>
-        <span class="title2" style="color: var(--color)">#</span>
-        <span class="more">
-          在
-          <a href="#" target="_blank">16personalities</a>
-          了解更多关于
-          <a href="#" target="_blank">
-            #
-          </a>
-        </span>
-        <img
-          src="#"
-          alt="male"
-          class="male"
-        />
-      </div>
-      -->
-      <!-- 座右铭 -->
-      <div class="about-item">
-        <span class="tip">座右铭</span>
-        <span class="title1" style="margin-top: 20px">与你进退，</span>
-        <span class="title2">也共鸣。</span>
-      </div>
-    </div>
     <!-- 占位符卡片已移除 -->
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
       <!-- 数据 -->
@@ -142,6 +113,14 @@
         <p class="text">
           <strong>Explore the boundaries of code and record the gravitational waves of thought.</strong>
         </p>
+      </div>
+    </div>
+    <!-- 座右铭 -->
+    <div class="about-content" style="display: flex">
+      <div class="about-item" style="width: 100%;">
+        <span class="tip">座右铭</span>
+        <span class="title1" style="margin-top: 20px">与你进退，</span>
+        <span class="title2">也共鸣。</span>
       </div>
     </div>
   </div>
