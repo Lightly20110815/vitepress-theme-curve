@@ -22,7 +22,7 @@ export const themeConfig = {
     },
   },
   // 备案信息
-  icp: "萌ICP备20259222号 (chiyu.it)",
+  icp: "萌ICP备20250733号",
   // 建站日期
   since: "2025-07-22",
   // 每页文章数据
