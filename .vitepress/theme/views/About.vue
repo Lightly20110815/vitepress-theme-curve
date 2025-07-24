@@ -88,21 +88,36 @@
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 1fr 1fr">
-      <!-- 游戏偏好 -->
+      <!-- 偏好卡片已恢复为占位符 -->
       <div
-        class="about-item like"
-        style="--color: #537098; justify-content: center; align-items: center; text-align: center;"
+        class="about-item like image"
+        style="
+          --color: #0c0e20;
+          background-image: url(https://picsum.photos/800/400?random=1);
+        "
       >
-        <span class="tip">游戏偏好</span>
-        <span class="title2" style="margin-right: 0;">COLORFUL STAGE</span>
+        <div class="image-content">
+          <span class="tip">✧</span>
+          <span class="title2">✧</span>
+          <div class="image-desc">
+            <span class="left">✧</span>
+          </div>
+        </div>
       </div>
-      <!-- 音乐偏好 -->
       <div
-        class="about-item like"
-        style="--color: #3dd2c3; justify-content: center; align-items: center; text-align: center;"
+        class="about-item like image"
+        style="
+          --color: #7b3c25;
+          background-image: url(https://picsum.photos/800/400?random=2);
+        "
       >
-        <span class="tip">音乐偏好</span>
-        <span class="title2" style="margin-right: 0;">VOCALOID</span>
+        <div class="image-content">
+          <span class="tip">✧</span>
+          <span class="title2">✧</span>
+          <div class="image-desc">
+            <span class="left">✧</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
