@@ -87,39 +87,7 @@
         <span class="title2">也共鸣。</span>
       </div>
     </div>
-    <div class="about-content" style="grid-template-columns: 1fr 1fr">
-      <!-- 偏好卡片已恢复为占位符 -->
-      <div
-        class="about-item like image"
-        style="
-          --color: #0c0e20;
-          background-image: url(https://picsum.photos/800/400?random=1);
-        "
-      >
-        <div class="image-content">
-          <span class="tip">✧</span>
-          <span class="title2">✧</span>
-          <div class="image-desc">
-            <span class="left">✧</span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="about-item like image"
-        style="
-          --color: #7b3c25;
-          background-image: url(https://picsum.photos/800/400?random=2);
-        "
-      >
-        <div class="image-content">
-          <span class="tip">✧</span>
-          <span class="title2">✧</span>
-          <div class="image-desc">
-            <span class="left">✧</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- 占位符卡片已移除 -->
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
       <!-- 数据 -->
       <div
