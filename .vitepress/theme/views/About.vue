@@ -6,7 +6,7 @@
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你👋</span>
         <span class="text2 title2">我是 Sy Yann</span>
-        <span class="text3">是一名❄❄❄❄???算了我也不知道?</span>
+        <span class="text3">描述？我也不知道写什么</span>
       </div>
       <!-- 追求 -->
       <!--
@@ -202,6 +202,13 @@
             <span class="tip">于</span>
             <span class="title2" style="margin-top: 20px; margin-right: 0;">15日</span>
         </div>
+    </div>
+    <div class="about-content" style="display: flex">
+      <div class="about-item" style="width: 100%;">
+        <span class="tip">特此感谢</span>
+        <p class="text" style="margin-top: 1rem;">池鱼鱼</p>
+        <p class="text">Gemini 2.5 Pro</p>
+      </div>
     </div>
   </div>
 </template>
