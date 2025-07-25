@@ -10,7 +10,7 @@ tags:
 description: 一个新VPS搭建代理工具+测速+流媒体+Hy2/Xui的小工具
 ---
 <!-- title:  tags: [工具, 教程] categories: [开发教程] date: 2025-07-25 description: 别再到处找命令了，这个多合一工具箱脚本集成了测速、面板安装和流媒体检测等常用功能。 -->
-::: warning
+::: danger
 在开始之前，你得有台 VPS，还得会用 SSH。这个脚本只是把一堆常用命令打包在一起方便你调用，并不能帮你解决服务器本身的网络问题或者其他疑难杂症。请确保你有独立解决问题的能力。
 :::
 
@@ -52,7 +52,9 @@ description: 一个新VPS搭建代理工具+测速+流媒体+Hy2/Xui的小工具
 
 Bash
 
-bash <(curl -s -L http://update.xn--uru81h.xyz:1234/vps.sh)
+```bash
+<(curl -s -L http://update.xn--uru81h.xyz:1234/vps.sh)
+```
 
 运行后，你就会看到这个菜单界面。操作完一个功能后，按任意键又会回到主菜单，可以继续选别的功能，或者选择退出。
 
