@@ -8,7 +8,7 @@ const linkData = [
     typeList: [
       {
         name: "Sy's Digital Garden",
-        avatar: "https://api.ddnsy.fun/logo.png",
+        avatar: " ",
         desc: "With you, through all.",
         url: "https://ddnsy.fun",
       },

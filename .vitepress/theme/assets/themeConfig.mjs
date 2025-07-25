@@ -8,7 +8,7 @@ export const themeConfig = {
     // 站点描述
     description: "With you, through all.", // <--- 已修改
     // 站点logo
-    logo: "https://api.ddnsy.fun/clogo.png",
+    logo: "https://api.ddnsy.fun/clogo.webp",
     // 站点地址
     site: "https://ddnsy.fun", // <--- 已修改
     // 语言
@@ -160,7 +160,7 @@ export const themeConfig = {
       name: "项目",
       list: [
         {
-          icon: "https://api.ddnsy.fun/clogo.png",
+          icon: "https://api.ddnsy.fun/clogo.webp",
           name: "主站",
           url: "/",
         },
