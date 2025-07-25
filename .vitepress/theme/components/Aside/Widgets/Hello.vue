@@ -47,11 +47,11 @@ const changeHello = () => {
   clearTimeout(helloTimeOut.value);
   helloClick.value++;
   if (helloClick.value === 1) {
-    helloText.value = "点这里干什么？";
+    helloText.value = "点我干什么？";
   } else if (helloClick.value === 2) {
     helloText.value = "怎么还点？";
   } else if (helloClick.value === 3) {
-    helloText.value = "那你点吧！";
+    helloText.value = "那你点吧!";
   } else if (helloClick.value === 100) {
     helloText.value = "怎么还在点？？？";
   } else {
