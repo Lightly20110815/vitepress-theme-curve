@@ -310,7 +310,7 @@ export const themeConfig = {
       // 必填，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
       js: "https://cdn.jsdelivr.net/npm/twikoo@1.6.42/dist/twikoo.all.min.js",
       // 环境ID，已为您替换
-      envId: "https://twiko1.vercel.app", // <--- 已修改为您的专属评论服务地址
+      envId: "https://twikoo.ddnsy.fun/", // <--- 已修改为您的专属评论服务地址
       // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
       region: "",
       lang: "zh-CN",
