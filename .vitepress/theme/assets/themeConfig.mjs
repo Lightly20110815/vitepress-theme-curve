@@ -340,6 +340,9 @@ export const themeConfig = {
         date: "2025-08-15",
       },
     },
+    HelloGithub: {
+      enable: true,
+    },
     // 站点数据
     siteData: {
       enable: true,
