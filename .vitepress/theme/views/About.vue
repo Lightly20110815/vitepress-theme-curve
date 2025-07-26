@@ -210,6 +210,12 @@
         <p class="text">Gemini 2.5 Pro</p>
       </div>
     </div>
+    div class="about-content" style="display: flex">
+      <div class="about-item" style="width: 100%;">
+        <span class="tip">问候</span>
+        <p class="text" style="margin-top: 1rem;">好久不见，这个世界</p>
+      </div>
+    </div>
   </div>
 </template>
 
