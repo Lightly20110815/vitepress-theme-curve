@@ -291,9 +291,10 @@ export const themeConfig = {
       //   ],
       // },
       {
-        text: "服务",
+        text: "关于 Sy",
         items: [
-          { text: "我的主页", link: "https://home.ddnsy.fun", newTab: true},
+          { text: "个人主页", link: "https://home.ddnsy.fun", newTab: true},
+          { text: "关于 Sy", link: "/pages/aboutme"},
         ],
       },
     ],
