@@ -368,9 +368,10 @@ export const themeConfig = {
   music: {
     enable: true,
     // url
-    url: "https://meting.20100907.xyz/api",
+    //url: "https://meting.20100907.xyz/api",
+    url: "https://api.injahow.cn/",
     // id
-    id: 14022768906, // <--- 已修改为您的歌单ID
+    id: 14022768906,
     // netease / tencent / kugou
     server: "netease",
     // playlist / album / song
