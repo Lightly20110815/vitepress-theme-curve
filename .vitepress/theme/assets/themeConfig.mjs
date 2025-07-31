@@ -369,7 +369,7 @@ export const themeConfig = {
     enable: true,
     // url
     //url: "https://meting.20100907.xyz/api",
-    url: "https://meting.ddnsy.fun/",
+    url: "https://meting.ddnsy.fun/api",
     // id
     id: 14022768906,
     // netease / tencent / kugou
