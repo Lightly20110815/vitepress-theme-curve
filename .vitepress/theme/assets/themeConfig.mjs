@@ -290,6 +290,12 @@ export const themeConfig = {
       //     { text: "站点状态", link: "https://status.chiyu.it", newTab: true },
       //   ],
       // },
+      {
+        text: "服务",
+        items: [
+          { text: "我的主页", link: "https://home.ddnsy.fun", newTab: true},
+        ],
+      },
     ],
   },
   // 评论
