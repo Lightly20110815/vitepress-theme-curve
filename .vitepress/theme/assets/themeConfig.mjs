@@ -263,7 +263,7 @@ export const themeConfig = {
       {
         text: "项目",
         items: [
-          { text: "本站源码", link: "https://github.com/kazukokawagawa/vitepress-theme-curve", newTab: true },
+          { text: "本站源码", link: "https://github.com/Lightly20110815/vitepress-theme-curve", newTab: true },
         ],
       },
       //{
@@ -284,12 +284,12 @@ export const themeConfig = {
           { text: "TODO", link: "/pages/todo" },
         ],
       },
-      {
-        text: "服务",
-        items: [
-          { text: "站点状态", link: "https://status.chiyu.it", newTab: true },
-        ],
-      },
+      // {
+      //   text: "服务",
+      //   items: [
+      //     { text: "站点状态", link: "https://status.chiyu.it", newTab: true },
+      //   ],
+      // },
     ],
   },
   // 评论
