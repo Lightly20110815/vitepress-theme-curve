@@ -293,7 +293,7 @@ export const themeConfig = {
       {
         text: "关于 Sy",
         items: [
-          { text: "个人主页", link: "https://home.ddnsy.fun", newTab: true},
+          { text: "个人主页", link: "https://hp.ddnsy.store/", newTab: true},
           { text: "关于 Sy", link: "/pages/aboutme"},
         ],
       },
