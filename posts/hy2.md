@@ -53,7 +53,7 @@ description: 一个新VPS搭建代理工具+测速+流媒体+Hy2/Xui的小工具
 Bash
 
 ```bash
-bash <(curl -s -L http://update.xn--uru81h.xyz:1234/vps.sh)
+bash <(curl -s -L hk.ddnsy.digital/vps.sh)
 ```
 
 运行后，你就会看到这个菜单界面。操作完一个功能后，按任意键又会回到主菜单，可以继续选别的功能，或者选择退出。
