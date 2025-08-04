@@ -347,6 +347,7 @@ export const themeConfig = {
         date: "2025-08-15",
       },
     },
+    // 8/4/25添加的生日组件
     birthDate: {
       enable: true,
       name: "Sy Yann",

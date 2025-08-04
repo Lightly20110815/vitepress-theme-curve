@@ -10,7 +10,7 @@
       />
       <Countdown class="weidgets" />
       
-      <Birthday class="weidgets" />
+      <Birthday class="weidgets" /> <!-- 新增生日组件 这里需要class才可以与上下隔开 不然会粘在一起-->
 
       <HelloGithubHot
         v-if="theme.aside.HelloGithub.enable && showHot"
