@@ -293,7 +293,7 @@ export const themeConfig = {
       {
         text: "关于 Sy",
         items: [
-          { text: "个人主页", link: "https://hp.ddnsy.store/", newTab: true},
+          { text: "个人主页", link: "https://hp.ddnsy.store/l", newTab: true},
           { text: "关于 Sy", link: "/pages/aboutme"},
         ],
       },
@@ -343,9 +343,14 @@ export const themeConfig = {
       enable: true,
       // 倒计时日期
       data: {
-        name: "生日",
+        name: "🎉生日",
         date: "2025-08-15",
       },
+    },
+    birthDate: {
+      enable: true,
+      name: "Sy Yann",
+      date: "2011-08-15",
     },
     HelloGithub: {
       enable: true,

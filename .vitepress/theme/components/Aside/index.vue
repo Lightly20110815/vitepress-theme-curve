@@ -3,17 +3,19 @@
     <Hello v-if="theme.aside.hello.enable" class="weidgets" />
     <div class="sticky">
       <Toc v-if="theme.aside.toc.enable && showToc" class="weidgets" />
-  <Weather
-    v-if="theme.aside.weather.enable && showWeather"
-    class="weidgets"
-    @fetch-error="onWeatherError"
-  />
+      <Weather
+        v-if="theme.aside.weather.enable && showWeather"
+        class="weidgets"
+        @fetch-error="onWeatherError"
+      />
       <Countdown class="weidgets" />
-            <!-- HelloGithub 热榜 -->
-    <HelloGithubHot
-      v-if="theme.aside.HelloGithub.enable && showHot"
-      @fetch-error="onHotError"
-    />
+      
+      <Birthday class="weidgets" />
+
+      <HelloGithubHot
+        v-if="theme.aside.HelloGithub.enable && showHot"
+        @fetch-error="onHotError"
+      />
       <Tags v-if="theme.aside.tags.enable" class="weidgets" />
       <SiteData v-if="theme.aside.siteData.enable" class="weidgets" />
     </div>
@@ -21,7 +23,15 @@
 </template>
 
 <script setup>
-const { theme } = useData();
+import Birthday from './Widgets/Birthday.vue' // 生日组件
+// import Hello from './Widgets/Hello.vue' // 打招呼组件
+// import Toc from './Widgets/Toc.vue' // 目录组件
+// import Weather from './Widgets/Weather.vue' // 天气组件
+// import Countdown from './Widgets/Countdown.vue' // 倒计时组件
+// import HelloGithubHot from './Widgets/HelloGithubHot.vue' // HelloGithub 热榜组件
+// import Tags from './Widgets/Tags.vue' // 标签组件
+// import SiteData from './Widgets/SiteData.vue' // 站点数据组件
+const { theme } = useData(); 
 const props = defineProps({
   // 显示目录
   showToc: {
