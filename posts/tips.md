@@ -13,7 +13,7 @@ description: Curve 主题：提示弹窗
 
 ## 预览弹窗样式
 
-访问 : **[Sy の漂流瓶](https://ddnsy.xyz/)** (可能是我的随笔? 打开可能有点慢哈)
+访问 : **[Sy の 漂流瓶](https://ddnsy.xyz/)** (可能是我的日常或随笔? 打开可能有点慢哈)
 
 ## 新建 InfoPopup.vue 文件
 新建在：`.vitepress\theme\components\InfoPopup.vue`<br>
