@@ -1,5 +1,5 @@
 ---
-title: 给你的Curve主题添加一个出生天数的侧边栏
+title: 给你的 Curve 主题添加一个出生天数的侧边栏
 tags: [开发]
 categories: [开发教程]
 date: 2025-08-04
