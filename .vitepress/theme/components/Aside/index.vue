@@ -8,7 +8,7 @@
     class="weidgets"
     @fetch-error="onWeatherError"
   />
-      <Countdown class="weidgets" />
+      <Countdown v-if="theme.aside.countDown.enable" class="weidgets" />
       <Timing v-if="theme.aside.timing.enable" class="weidgets" />
       <!-- HelloGithub 热榜 -->
     <HelloGithubHot
