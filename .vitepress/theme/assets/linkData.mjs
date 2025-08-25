@@ -23,7 +23,7 @@ const linkData = [
       // <--- 已为您添加池鱼小栈的链接
       {
         name: "池鱼小栈",
-        avatar: "/images/logo/logo.webp",
+        avatar: "/images/logo/SyYann!.PNG",
         desc: "｜д•´)!!",
         url: "https://chiyu.it",
       },
