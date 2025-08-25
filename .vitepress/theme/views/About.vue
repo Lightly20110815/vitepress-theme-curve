@@ -203,19 +203,20 @@
             <span class="title2" style="margin-top: 20px; margin-right: 0;">15日</span>
         </div>
     </div>
-  <div class="about-item" style="width: 100%;">
-    <span class="tip">致谢！</span>
-    <p class="text" style="margin-top: 1rem;">
-      <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">
-        超厉害的 @池鱼鱼 !
-      </a>
-    </p>
-    <p class="text">
-      <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
-        提供灵感的 @Gemini
-      </a>
-    </p>
-    </div>
+<div class="about-item" style="width: 100%;">
+  <span class="tip">致谢！</span>
+  <p class="text" style="margin-top: 1rem;">
+    <a class="thanks-link" href="https://chiyu.it" target="_blank" rel="noopener noreferrer">
+      超厉害的 @池鱼鱼 !
+    </a>
+  </p>
+  <p class="text">
+    <a class="thanks-link" href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
+      提供灵感的 @Gemini
+    </a>
+  </p>
+</div>
+
   </div>
 </template>
 
