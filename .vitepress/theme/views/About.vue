@@ -6,7 +6,7 @@
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你👋</span>
         <span class="text2 title2">我是 Sy Yann</span>
-        <span class="text3">描述？我也不知道写什么</span>
+        <span class="text3">也可以称呼咱为夕妍的说~</span>
       </div>
       <!-- 追求 -->
       <!--

@@ -5,7 +5,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>安全中心 | 池鱼小栈</title>
+    <title>夕妍提醒您</title>
     <style>
       * {
         margin: 0;
@@ -154,16 +154,16 @@
         <img src="./images/logo/logo.webp" alt="" />
       </div>
       <div class="title">
-        <span class="site-name">池鱼小栈</span>
-        <span class="site-tip">安全中心</span>
+        <span class="site-name">Sy's Digital Garden</span>
+        <span class="site-tip">小小安全提醒</span>
       </div>
     </header>
     <main>
-      <span class="tip">您即将离开池鱼小栈，前往</span>
+      <span class="tip">🌸 夕妍轻轻提醒：你要走出花园啦，前往</span>
       <span id="url"></span>
       <div id="jump-content" class="warn">
-        <span id="site-info">⚠️ 该网址安全性未知，请注意您的帐号和财产安全</span>
-        <div id="jump-button">继续前往</div>
+        <span id="site-info">⚠️ 这个网址还不太熟悉呢，记得保护好自己哦～</span>
+        <div id="jump-button">走吧！去探险 ✨</div>
       </div>
     </main>
     <footer>
@@ -172,20 +172,18 @@
         <script>
           document.write(new Date().getFullYear());
         </script>
-        池鱼小栈
+        Sy's Digital Garden
       </a>
       <a class="icp" href="https://icp.gov.moe/?keyword=20259222" target="_blank"> 萌ICP备20259222号 </a>
     </footer>
     <script>
-      // 跳转网址
       let jumpLink;
       let interval;
-      // 获取元素
       const urlDom = document.getElementById("url");
       const urlTip = document.getElementById("site-info");
       const jumpContent = document.getElementById("jump-content");
       const jumpButton = document.getElementById("jump-button");
-      // 网址白名单
+
       const whitelist = [
         "*.chiyu.it",
         "gitee.com",
@@ -194,14 +192,13 @@
         "*.bing.cn",
         "npmjs.com",
       ];
-      // 网址黑名单
       const blacklist = ["*.taobao.com", "*.jd.com"];
-      // 提示文本
+
       const tipText = {
-        safe: "✅ 该网址为信任网址，即将跳转",
-        danger: "⛔ 该网址处于黑名单",
+        safe: "🌿 这是咱信任的小伙伴，可以放心过去啦～",
+        danger: "🚫 咱不建议去那里呢，可能有点危险…",
       };
-      // 自动跳转
+
       const autoJump = () => {
         let count = 3;
         const updateContent = () => {
@@ -209,32 +206,27 @@
           count--;
           if (count < 0) {
             clearInterval(interval);
-            jumpButton.innerHTML = "正在跳转";
+            jumpButton.innerHTML = "咻～带你飞过去 💫";
             window.location.replace(jumpLink);
           }
         };
-        // 每秒更新一次
         updateContent();
         interval = setInterval(updateContent, 1000);
       };
-      // 获取跳转网址
+
       const getJumpUrl = () => {
         try {
-          // 解析 URL 参数
           const urlParams = new URLSearchParams(window.location.search);
           const encodedUrl = urlParams.get("url");
-          // 解密 Base64
           jumpLink = atob(encodedUrl);
           urlDom.innerHTML = jumpLink;
-          // 获取网址的主机名
           const urlHostname = new URL(jumpLink).hostname;
-          // 判断网址是否在黑名单中
+
           for (let i = 0; i < blacklist.length; i++) {
             const blackPattern = blacklist[i].replace(/\*/g, ".*");
             if (urlHostname.match(blackPattern)) {
-              // 显示提示信息
               urlTip.innerHTML = tipText.danger;
-              jumpButton.innerHTML = "禁止跳转";
+              jumpButton.innerHTML = "那里暂时去不了呢…";
               jumpButton.style.cursor = "not-allowed";
               jumpButton.style.pointerEvents = "none";
               jumpButton.style.opacity = "0.4";
@@ -242,11 +234,10 @@
               return true;
             }
           }
-          // 判断网址是否在白名单中
+
           for (let i = 0; i < whitelist.length; i++) {
             const whitePattern = whitelist[i].replace(/\*/g, ".*");
             if (urlHostname.match(whitePattern)) {
-              // 显示提示信息
               urlTip.innerHTML = tipText.safe;
               jumpContent.className = "safe";
               autoJump();
@@ -259,6 +250,7 @@
           urlDom.innerHTML = "获取跳转链接失败";
         }
       };
+
       document.addEventListener("contextmenu", function (event) {
         event.preventDefault();
       });
@@ -274,11 +266,13 @@
           event.preventDefault();
         }
       });
+
       jumpButton.addEventListener("click", () => {
         clearInterval(interval);
-        jumpButton.innerHTML = "正在跳转";
+        jumpButton.innerHTML = "咻～带你飞过去 💫";
         if (jumpLink) window.location.replace(jumpLink);
       });
+
       window.addEventListener("DOMContentLoaded", () => {
         getJumpUrl();
       });
