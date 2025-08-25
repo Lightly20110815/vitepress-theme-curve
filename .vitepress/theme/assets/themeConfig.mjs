@@ -16,8 +16,8 @@ export const themeConfig = {
     // 作者
     author: {
       name: "Sy", // <--- 已修改
-      cover: "/images/SyYann!.png", // <--- 占位符路径
-      email: "yangxingranapple@outlook.com", // <--- 已修改
+      cover: "/avatar/Avatar.png", // <--- 占位符路径
+      email: "me@404yann.com", // <--- 已修改
       link: "https://ddnsy.fun", // <--- 已修改
     },
   },
