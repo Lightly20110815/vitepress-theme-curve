@@ -34,6 +34,7 @@
             target="_blank"
           >
             <div class="skills-logo">
+              <!-- 已修改：根据 item.custom 动态切换图标类名 -->
               <i :class="item.custom ? `myicons myicon-${item.icon}` : `iconfont icon-${item.icon}`"></i>
             </div>
             <span class="skills-name">{{ item.name }}</span>
@@ -202,23 +203,26 @@
             <span class="title2" style="margin-top: 20px; margin-right: 0;">15日</span>
         </div>
     </div>
-
-    <!-- 修改后的致谢区块 -->
-    <div class="about-content" style="display: flex;">
-      <div class="about-item" style="width: 100%;">
-        <span class="tip">致谢！</span>
-        <p class="text" style="margin-top: 1rem;">
-          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">
-            超厉害的 @池鱼鱼 !
-          </a>
-        </p>
-        <p class="text">
-          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
-            提供灵感的 @Gemini
-          </a>
-        </p>
-      </div>
-    </div>
+    <div class="about-content" style="display: flex">
+  <div class="about-item" style="width: 100%;">
+    <span class="tip">特此感谢</span>
+    <p class="text" style="margin-top: 1rem;">
+      <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">
+        池鱼鱼
+      </a>
+    </p>
+    <p class="text">
+      <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
+        Gemini 2.5 Pro
+      </a>
+    </p>
+    <p class="text">
+      <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">
+        ChatGPT（GPT‑4o）
+      </a>
+    </p>
+  </div>
+</div>
 
   </div>
 </template>
@@ -263,11 +267,11 @@ const skillsData = [
     link: "https://www.python.org/",
   },
   {
-    name: "C++",
+    name: "C++", // <--- 新增的技能
     color: "#00599C",
-    icon: "C++",
+    icon: "C++", // <-- 假设您在Iconfont项目中的图标名为cplusplus
     link: "https://isocpp.org/",
-    custom: true,
+    custom: true, // <--- 新增的自定义标记
   },
   {
     name: "Docker",
@@ -289,6 +293,7 @@ const skillsData = [
   },
 ];
 
+// 站点统计数据
 const statisticsData = ref(null);
 
 // 获取站点统计数据
@@ -346,6 +351,273 @@ onMounted(() => {
         font-size: 18px;
         margin: 0.6rem 0;
       }
+      &.child {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        gap: 20px;
+        .about-item {
+          height: 100%;
+        }
+      }
+      &.hello {
+        justify-content: center;
+        padding: 2rem;
+        color: #fff;
+        background-image: linear-gradient(120deg, #5b27ff 0%, #00d4ff 100%);
+        background-size: 200% 200%;
+        animation: gradientFlow 6s ease infinite;
+        .title2 {
+          line-height: 2;
+        }
+      }
+      &.pursuit {
+        .title2 {
+          line-height: 1.2;
+          &:last-child {
+            display: inline-block;
+            background-size: 100% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(45deg, #fa7671 50%, #f45f7f);
+          }
+        }
+      }
+      &.character {
+        min-height: 220px;
+        cursor: pointer;
+        .more {
+          margin-top: auto;
+          font-size: 14px;
+          color: var(--main-color-gray);
+          a {
+            color: var(--main-color-gray);
+            &:hover {
+              color: var(--color);
+            }
+          }
+        }
+        .male {
+          position: absolute;
+          top: 20px;
+          right: -10px;
+          height: 140%;
+          width: auto;
+          transition: transform 0.5s;
+          transform-origin: top center;
+          @media (max-width: 768px) {
+            height: 80%;
+          }
+        }
+        &:hover {
+          .male {
+            transform: scale(1.2);
+          }
+        }
+      }
+      &.skills {
+        .skills-list {
+          margin-top: 12px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          .skills-item {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            margin-top: 10px;
+            padding: 8px 12px 8px 8px;
+            border-radius: 40px;
+            background-color: var(--main-site-background);
+            border: 1px solid var(--main-card-border);
+            box-shadow: 0 8px 12px -4px var(--main-border-shadow);
+            transition: background-color 0.3s;
+            cursor: pointer;
+            .skills-logo {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 32px;
+              height: 32px;
+              margin-right: 8px;
+              border-radius: 50%;
+              background-color: var(--color);
+              .iconfont, .myicons {
+                color: #fff;
+              }
+            }
+            .skills-name {
+              font-weight: bold;
+              transition: color 0.3s;
+            }
+            &:hover {
+              background-color: var(--main-card-background);
+            }
+          }
+        }
+      }
+      &.career {
+        .title2 {
+          letter-spacing: 0.2rem;
+          font-size: 40px;
+        }
+        .list {
+          margin-top: 12px;
+          display: flex;
+          flex-direction: column;
+          .list-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--main-font-second-color);
+            &::before {
+              content: "";
+              display: block;
+              width: 16px;
+              height: 16px;
+              background-color: var(--color);
+              border-radius: 50%;
+              margin-right: 8px;
+            }
+          }
+        }
+        .career-img {
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 100%;
+          @media (max-width: 768px) {
+            position: static;
+          }
+        }
+      }
+      &.game {
+        min-height: 300px;
+        @media (max-width: 768px) {
+          min-height: 240px;
+        }
+      }
+      &.like {
+        min-height: 400px;
+        @media (max-width: 768px) {
+          min-height: 300px;
+        }
+      }
+      &.image {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        .image-content {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          z-index: 2;
+          color: #fff;
+          .image-desc {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            &.opacity {
+              font-size: 14px;
+              color: #eee;
+              opacity: 0.8;
+              a {
+                color: #eee;
+                &:hover {
+                  color: var(--main-color);
+                }
+              }
+            }
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          box-shadow: inset 0 -70px 204px 10px var(--color);
+          z-index: 0;
+        }
+      }
+      &.static {
+        .static-data {
+          display: grid;
+          gap: 12px;
+          grid-template-columns: 1fr 1fr;
+          margin: 20px 0;
+          .static-item {
+            display: flex;
+            flex-direction: column;
+            .static-name {
+              font-size: 15px;
+              opacity: 0.8;
+            }
+            .static-num {
+              font-size: 34px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      &.map {
+        min-height: 170px;
+        background-size: 100%;
+        transition: background 1.5s ease-in-out;
+        cursor: pointer;
+        @media (max-width: 768px) {
+          background-size: cover;
+          pointer-events: none;
+        }
+        .position {
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          padding: 20px 30px;
+          color: #fff;
+          background-color: #636352;
+          font-size: 20px;
+          transition: bottom 1s;
+        }
+        &:hover {
+          background-size: 120%;
+          background-position-x: 0;
+          background-position-y: 36%;
+          .position {
+            bottom: -80px;
+          }
+        }
+      }
+      &.info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        .info-item {
+          display: flex;
+          flex-direction: column;
+          margin-right: 32px;
+          .info-name {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--main-font-second-color);
+          }
+          .info-num {
+            font-size: 34px;
+            font-weight: bold;
+            color: var(--color);
+          }
+        }
+      }
     }
     &:last-child {
       margin-bottom: 0;
@@ -354,6 +626,18 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
     }
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 </style>
