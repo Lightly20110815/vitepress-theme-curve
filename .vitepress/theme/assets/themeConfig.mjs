@@ -16,7 +16,7 @@ export const themeConfig = {
     // 作者
     author: {
       name: "Sy", // <--- 已修改
-      cover: "/avatar.png", // <--- 占位符路径
+      cover: "/images/SyYann!.png", // <--- 占位符路径
       email: "yangxingranapple@outlook.com", // <--- 已修改
       link: "https://ddnsy.fun", // <--- 已修改
     },
@@ -226,7 +226,7 @@ export const themeConfig = {
     social: [
       {
         icon: "email",
-        link: "mailto:yangxingranapple@outlook.com",
+        link: "mailto:me@404yann.com",
       },
       {
         icon: "github",
