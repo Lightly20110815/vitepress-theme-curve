@@ -20,12 +20,24 @@ const linkData = [
     typeName: "小伙伴们",
     typeDesc: "我们在一起，共同进步",
     typeList: [
-      // <--- 已为您添加池鱼小栈的链接
       {
         name: "池鱼小栈",
         avatar: "/images/logo/logo.webp",
         desc: "｜д•´)!!",
         url: "https://chiyu.it",
+      },
+    ],
+  },
+  {
+    type: "friends",
+    typeName: "小伙伴们",
+    typeDesc: "我们在一起，共同进步",
+    typeList: [
+      {
+        name: "Clover Yan",
+        avatar: "https://www.khyan.top/assets/avatar_4.jpg",
+        desc: "生命是灰色的，理论之树常青。",
+        url: "https://www.khyan.top/",
       },
     ],
   },
