@@ -26,16 +26,9 @@ const linkData = [
         desc: "｜д•´)!!",
         url: "https://chiyu.it",
       },
-    ],
-  },
-  {
-    type: "friends",
-    typeName: "小伙伴们",
-    typeDesc: "我们在一起，共同进步",
-    typeList: [
       {
         name: "Clover Yan",
-        avatar: "https://www.khyan.top/assets/avatar_4.jpg",
+        avatar: `https://www.khyan.top/assets/avatar_${Math.floor(Math.random() * 4) + 1}.jpg`,
         desc: "生命是灰色的，理论之树常青。",
         url: "https://www.khyan.top/",
       },
