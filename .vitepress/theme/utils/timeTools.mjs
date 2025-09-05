@@ -12,6 +12,7 @@ export const getTimeRemaining = () => {
     month: "本月",
     year: "本年",
   };
+
   /**
    * 计算时间差的函数
    * @param {String} unit 时间单位，可以是 'day', 'week', 'month', 'year'
@@ -21,18 +22,20 @@ export const getTimeRemaining = () => {
     const start = now.startOf(unit);
     // 获取当前时间单位的结束时间
     const end = now.endOf(unit);
-    // 计算总的天数或小时数
-    const total = end.diff(start, unit === "day" ? "hour" : "day") + 1;
-    // 计算已经过去的天数或小时数
-    let passed;
-    if (unit === "week" && now.day() === 0) {
-      // 如果是星期日
-      passed = total - 1;
-    } else {
-      passed = now.diff(start, unit === "day" ? "hour" : "day");
-    }
+    
+    // isDay 變數用來判斷單位是否為 'day'
+    const isDay = unit === "day";
+    
+    // 計算總的天數或小時數
+    const total = end.diff(start, isDay ? "hour" : "day") + 1;
+    
+    // 計算已經過去的天數或小時數
+    // [修正] 移除了原先針對星期日的錯誤判斷，讓 dayjs.diff() 自行處理，邏輯更簡潔且正確。
+    const passed = now.diff(start, isDay ? "hour" : "day");
+    
     const remaining = total - passed;
     const percentage = (passed / total) * 100;
+    
     // 返回数据
     return {
       name: dayText[unit],
@@ -42,6 +45,7 @@ export const getTimeRemaining = () => {
       percentage: percentage.toFixed(2),
     };
   };
+
   return {
     day: getDifference("day"),
     week: getDifference("week"),
@@ -51,31 +55,18 @@ export const getTimeRemaining = () => {
 };
 
 /**
- * 计算当前日期距离指定日期的天数
+ * 计算当前日期距离指定日期的日历天数
  * @param {string} dateStr - 指定的日期，格式为 'YYYY-MM-DD'
- * @return {number} 返回的天数
+ * @return {number} 返回剩余的天数
  */
 export const getDaysUntil = (dateStr) => {
   const now = dayjs();
   const targetDate = dayjs(dateStr);
-  const daysUntil = targetDate.diff(now, "day");
+  
+  // [修正] 將兩個日期的時間都設為一天的開始 (00:00:00) 再進行比較。
+  // 這樣可以確保計算的是日曆天數的差異，而不是 24 小時制的差異，結果更符合使用者預期。
+  // 例如，無論今天幾點，計算到明天的天數都會是 1。
+  const daysUntil = targetDate.startOf('day').diff(now.startOf('day'), "day");
+  
   return daysUntil;
-};
-
-/**
- * 格式化日期字符串。
- * 如果日期与当前年份相同，则返回 "月/日" 格式
- * 如果日期不与当前年份相同，则返回 "年/月/日" 格式
- * @param {string} dateString - 需要转换的日期字符串，格式为 "YYYY/MM/DD" 或 "YYYY-MM-DD"
- * @returns {string} 格式化后的日期。
- */
-export const formatDate = (dateString) => {
-  // 获取当前年份
-  const currentYear = new Date().getFullYear();
-  // 解析传入的日期字符串
-  const date = new Date(dateString.replace(/-/g, "/"));
-  // 检查年份是否相同，并且格式化日期
-  return date.getFullYear() === currentYear
-    ? `${date.getMonth() + 1}/${date.getDate()}`
-    : `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 };
