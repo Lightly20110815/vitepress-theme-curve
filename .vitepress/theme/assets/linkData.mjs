@@ -32,6 +32,12 @@ const linkData = [
         desc: "生命是灰色的，理论之树常青。",
         url: "https://www.khyan.top/",
       },
+       {
+        name: "寻亦见北",
+        avatar: `https://www.xyjb.org/img/favicon.png`,
+        desc: "寻褶·见熵·北纬·柒文",
+        url: "https://xyjb.org",
+      },
     ],
   },
    // 丢失
