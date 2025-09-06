@@ -47,7 +47,16 @@ const allLinkData = computed(() => {
 // 随机跳转
 const randomJump = () => {
   try {
-    const friendList = allLinkData.value;
+    // 过滤掉 type: "rec" 的站点数据
+    const friendList = linkData
+      .filter((item) => item.type === "friends")
+      .flatMap((item) => item.typeList);
+
+    if (friendList.length === 0) {
+      $message.warning("没有可访问的友链数据");
+      return;
+    }
+
     const randomList = friendList[Math.floor(Math.random() * friendList.length)];
     $message.warning(
       `您即将前往 ${randomList?.name}，请注意链接是否安全`,
