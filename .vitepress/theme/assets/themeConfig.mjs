@@ -334,7 +334,7 @@ export const themeConfig = {
       // 倒计时日期
       data: {
         name: "生日",
-        date: "2025-09-07",
+        date: "2026-09-07",
       },
     },
     timing: {
