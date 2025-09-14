@@ -12,6 +12,13 @@
       
       <Birthday class="weidgets" /> <!-- 新增生日组件 这里需要class才可以与上下隔开 不然会粘在一起-->
 
+      <!-- 修改：添加时间判断逻辑 -->
+      <!-- <RandomQuote
+        v-if="theme.aside.randomQuote.enable && isNightTime"
+        class="weidgets"
+      /> -->
+      <RandomQuote v-if="theme.aside.randomQuote.enable" class="weidgets" />
+
       <HelloGithubHot
         v-if="theme.aside.HelloGithub.enable && showHot"
         @fetch-error="onHotError"
@@ -24,6 +31,7 @@
 
 <script setup>
 import Birthday from './Widgets/Birthday.vue' // 生日组件
+import RandomQuote from './Widgets/randomquote.vue' // 随机一言组件
 // import Hello from './Widgets/Hello.vue' // 打招呼组件
 // import Toc from './Widgets/Toc.vue' // 目录组件
 // import Weather from './Widgets/Weather.vue' // 天气组件
@@ -42,6 +50,14 @@ const props = defineProps({
 
 const showWeather = ref(true)
 const showHot = ref(true)
+
+// 判断当前时间是否在 23:00 到 4:00
+const isNightTime = computed(() => {
+  const now = new Date();
+  const hour = now.getHours();
+  return hour >= 23 || hour < 4;
+});
+
 // 一旦收到子组件的 fetch-error 事件，就把 showWeather 置为 false
 function onWeatherError(err) {
   console.error('天气组件获取失败：', err)
