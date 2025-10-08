@@ -27,7 +27,7 @@ const getMusicListData = async () => {
     console.log(musicList);
     initAPlayer(musicList?.length ? musicList : []);
   } catch (error) {
-    $message.error("获取播放列表失败，请重试");
+    // $message.error("获取播放列表失败，请重试");
     initAPlayer([]);
   }
 };
