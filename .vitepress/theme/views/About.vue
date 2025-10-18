@@ -4,9 +4,9 @@
     <div class="about-content" style="grid-template-columns: 3fr 2fr">
       <!-- 介绍 -->
       <div class="about-item hello">
-        <span class="text1">你好，很高兴认识你👋</span>
+        <span class="text1">你好，很高兴认识你~👋</span>
         <span class="text2 title2">我是 Sy Yann</span>
-        <span class="text3">也可以称呼咱为夕妍的说~</span>
+        <span class="text3">欢迎走近一个名字</span>
       </div>
       <!-- 追求 -->
       <!--
@@ -41,92 +41,6 @@
           </a>
         </div>
       </div>
-
-      <!-- 生涯 -->
-       <!--
-      <div class="about-item career">
-        <span class="tip">生涯</span>
-        <span class="title2">
-          <i>無限進步</i>
-        </span>
-        <div class="list">
-          <span class="list-item" style="--color: #357ef5">#</span>
-          <span class="list-item" style="--color: #eb372a">#</span>
-        </div>
-        <img
-          class="career-img"
-          src="https://pic.efefee.cn/uploads/2024/02/22/65d71db18bcf9.png"
-          alt="career"
-        />
-      </div>
-    </div>
-    <div class="about-content" style="grid-template-columns: 3fr 2fr">
-      -->
-      <!-- 性格 -->
-       <!--
-      <div class="about-item character" style="--color: #4298b4">
-        <span class="tip">#</span>
-        <span class="title2">#</span>
-        <span class="title2" style="color: var(--color)">#</span>
-        <span class="more">
-          在
-          <a href="#" target="_blank">16personalities</a>
-          了解更多关于
-          <a href="#" target="_blank">
-            #
-          </a>
-        </span>
-        <img
-          src="#"
-          alt="male"
-          class="male"
-        />
-      </div>
-    -->
-      <!-- 座右铭 -->
-      <!--
-      <div class="about-item">
-        <span class="tip">#</span>
-        <span class="title1" style="margin-top: 20px">#，</span>
-        <span class="title2">#。</span>
-      </div>
-    </div>
-    <div class="about-content" style="grid-template-columns: 1fr 1fr">
-      <div
-        class="about-item like image"
-        style="
-          --color: #0c0e20;
-          background-image: url(https://picsum.photos/800/400?random=1);
-        "
-      >
-        <div class="image-content">
-          <span class="tip">✧</span>
-          <span class="title2">✧</span>
-          <div class="image-desc">
-            <span class="left">✧</span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="about-item like image"
-        style="
-          --color: #7b3c25;
-          background-image: url(https://picsum.photos/800/400?random=2);
-        "
-      >
-        <div class="image-content">
-          <span class="tip">✧</span>
-          <span class="title2">✧</span>
-          <div class="image-desc">
-            <span class="left">✧</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="about-content" style="grid-template-columns: 2fr 3fr">
-    -->
-      <!-- 数据 -->
-
       <div
         class="about-item static image"
         style="
@@ -164,10 +78,10 @@
     <!-- 心路历程 -->
     <div class="about-content" style="display: flex">
       <div class="about-item">
-        <span class="tip">关于这个Digital Garden</span>
-        <span class="title2">一座收容内心喧嚣的孤岛</span>
-        <p class="text">
-          把所有破碎的呓语，说给潮汐和自己听。
+        <span class="tip">关于我？</span>
+        <span class="title2">写了也没人看的</span>
+        <p class="tip">
+          我的死活没人在乎……
         </p>
       </div>
     </div>
@@ -265,13 +179,6 @@ const skillsData = [
     color: "#3776AB",
     icon: "python",
     link: "https://www.python.org/",
-  },
-  {
-    name: "C++", // <--- 新增的技能
-    color: "#00599C",
-    icon: "C++", // <-- 假设您在Iconfont项目中的图标名为cplusplus
-    link: "https://isocpp.org/",
-    custom: true, // <--- 新增的自定义标记
   },
   {
     name: "Docker",
