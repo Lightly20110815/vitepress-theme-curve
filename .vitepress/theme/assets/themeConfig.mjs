@@ -384,7 +384,7 @@ export const themeConfig = {
   music: {
     enable: true,
     // url
-    url: "https://meting.20100907.xyz/api",
+    url: "https://meting.20110815.xyz/api",
     //url: "https://meting.ddnsy.fun/api",
     // id
     id: 14022768906,
