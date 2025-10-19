@@ -2,25 +2,11 @@
   <div class="about">
     <h1 class="title">关于本站</h1>
     <div class="about-content" style="grid-template-columns: 3fr 2fr">
-      <!-- 介绍 -->
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你~👋</span>
         <span class="text2 title2">我是 Sy Yann</span>
         <span class="text3">欢迎走近一个名字</span>
       </div>
-      <!-- 追求 -->
-      <!--
-      <div class="about-item pursuit">
-        <span class="tip">#</span>
-        <span class="title2">#</span>
-        <span class="title2">#</span>
-        <span class="title2">#</span>
-      </div>
-    </div>
-    <div class="about-content" style="grid-template-columns: 2fr 3fr">
-      -->
-      <!-- 技能 -->
-
       <div class="about-item skills">
         <span class="tip">技能</span>
         <span class="title2">我不会的玩意</span>
@@ -34,7 +20,6 @@
             target="_blank"
           >
             <div class="skills-logo">
-              <!-- 已修改：根据 item.custom 动态切换图标类名 -->
               <i :class="item.custom ? `myicons myicon-${item.icon}` : `iconfont icon-${item.icon}`"></i>
             </div>
             <span class="skills-name">{{ item.name }}</span>
@@ -64,8 +49,6 @@
           </div>
         </div>
       </div>
-
-      <!-- 信息 -->
       <div class="about-item child">
         <div
           class="about-item map image"
@@ -75,17 +58,13 @@
         </div>
       </div>
     </div>
-    <!-- 心路历程 -->
     <div class="about-content" style="display: flex">
       <div class="about-item">
         <span class="tip">关于我？</span>
         <span class="title2">写了也没人看的</span>
-        <p class="tip">
-          我的死活没人在乎……
-        </p>
+        <p class="tip">我的死活没人在乎……</p>
       </div>
     </div>
-    <!-- 座右铭 -->
     <div class="about-content" style="display: flex">
       <div class="about-item" style="width: 100%;">
         <span class="tip">座右铭</span>
@@ -94,50 +73,43 @@
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 1fr 1fr">
-        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-            <span class="tip">喜欢的音乐风格</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">VOCALOID</span>
-        </div>
-        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-            <span class="tip">喜欢的游戏</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">COLORFUL STAGE</span>
-        </div>
+      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+        <span class="tip">喜欢的音乐风格</span>
+        <span class="title2" style="margin-top: 20px; margin-right: 0;">VOCALOID</span>
+      </div>
+      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+        <span class="tip">喜欢的游戏</span>
+        <span class="title2" style="margin-top: 20px; margin-right: 0;">COLORFUL STAGE</span>
+      </div>
     </div>
     <div class="about-content" style="grid-template-columns: 1fr 1fr 1fr">
-        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-            <span class="tip">诞</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">2011年</span>
-        </div>
-        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-            <span class="tip">生</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">8月</span>
-        </div>
-        <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-            <span class="tip">于</span>
-            <span class="title2" style="margin-top: 20px; margin-right: 0;">15日</span>
-        </div>
+      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+        <span class="tip">诞</span>
+        <span class="title2" style="margin-top: 20px; margin-right: 0;">2011年</span>
+      </div>
+      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+        <span class="tip">生</span>
+        <span class="title2" style="margin-top: 20px; margin-right: 0;">8月</span>
+      </div>
+      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
+        <span class="tip">于</span>
+        <span class="title2" style="margin-top: 20px; margin-right: 0;">15日</span>
+      </div>
     </div>
     <div class="about-content" style="display: flex">
-  <div class="about-item" style="width: 100%;">
-    <span class="tip">特此感谢</span>
-    <p class="text" style="margin-top: 1rem;">
-      <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">
-        池鱼鱼
-      </a>
-    </p>
-    <p class="text">
-      <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
-        Gemini 2.5 Pro
-      </a>
-    </p>
-    <p class="text">
-      <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">
-        ChatGPT（GPT‑4o）
-      </a>
-    </p>
-  </div>
-</div>
-
+      <div class="about-item" style="width: 100%;">
+        <span class="tip">特此感谢</span>
+        <p class="text" style="margin-top: 1rem;">
+          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">池鱼鱼</a>
+        </p>
+        <p class="text">
+          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">Gemini 2.5 Pro</a>
+        </p>
+        <p class="text">
+          <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">ChatGPT（GPT-4o）</a>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -148,62 +120,19 @@ import { onMounted, ref } from "vue";
 
 const { theme } = useData();
 
-// 技能数据
 const skillsData = [
-  {
-    name: "JavaScript",
-    color: "#f1e05abd",
-    icon: "javascript",
-    link: "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript",
-  },
-  {
-    name: "HTML5",
-    color: "#e34f26",
-    icon: "html5",
-    link: "https://developer.mozilla.org/zh-CN/docs/Web/HTML",
-  },
-  {
-    name: "Vue",
-    color: "#41b883",
-    icon: "vue",
-    link: "https://cn.vuejs.org/",
-  },
-  {
-    name: "Node.js",
-    color: "#026E00",
-    icon: "nodejs",
-    link: "https://nodejs.org/",
-  },
-  {
-    name: "Python",
-    color: "#3776AB",
-    icon: "python",
-    link: "https://www.python.org/",
-  },
-  {
-    name: "Docker",
-    color: "#2496f2",
-    icon: "docker",
-    link: "https://www.docker.com/",
-  },
-  {
-    name: "Git",
-    color: "#F05032",
-    icon: "git",
-    link: "https://git-scm.com/",
-  },
-  {
-    name: "ChatGPT",
-    color: "#4AA181",
-    icon: "chatgpt",
-    link: "https://chat.openai.com/",
-  },
+  { name: "JavaScript", color: "#f1e05abd", icon: "javascript", link: "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" },
+  { name: "HTML5", color: "#e34f26", icon: "html5", link: "https://developer.mozilla.org/zh-CN/docs/Web/HTML" },
+  { name: "Vue", color: "#41b883", icon: "vue", link: "https://cn.vuejs.org/" },
+  { name: "Node.js", color: "#026E00", icon: "nodejs", link: "https://nodejs.org/" },
+  { name: "Python", color: "#3776AB", icon: "python", link: "https://www.python.org/" },
+  { name: "Docker", color: "#2496f2", icon: "docker", link: "https://www.docker.com/" },
+  { name: "Git", color: "#F05032", icon: "git", link: "https://git-scm.com/" },
+  { name: "ChatGPT", color: "#4AA181", icon: "chatgpt", link: "https://chat.openai.com/" },
 ];
 
-// 站点统计数据
 const statisticsData = ref(null);
 
-// 获取站点统计数据
 const getStatisticsData = async () => {
   if (theme.value.tongji && theme.value.tongji["51la"]) {
     const result = await getStatistics(theme.value.tongji["51la"]);
@@ -293,38 +222,6 @@ onMounted(() => {
           }
         }
       }
-      &.character {
-        min-height: 220px;
-        cursor: pointer;
-        .more {
-          margin-top: auto;
-          font-size: 14px;
-          color: var(--main-color-gray);
-          a {
-            color: var(--main-color-gray);
-            &:hover {
-              color: var(--color);
-            }
-          }
-        }
-        .male {
-          position: absolute;
-          top: 20px;
-          right: -10px;
-          height: 140%;
-          width: auto;
-          transition: transform 0.5s;
-          transform-origin: top center;
-          @media (max-width: 768px) {
-            height: 80%;
-          }
-        }
-        &:hover {
-          .male {
-            transform: scale(1.2);
-          }
-        }
-      }
       &.skills {
         .skills-list {
           margin-top: 12px;
@@ -364,54 +261,6 @@ onMounted(() => {
               background-color: var(--main-card-background);
             }
           }
-        }
-      }
-      &.career {
-        .title2 {
-          letter-spacing: 0.2rem;
-          font-size: 40px;
-        }
-        .list {
-          margin-top: 12px;
-          display: flex;
-          flex-direction: column;
-          .list-item {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-bottom: 12px;
-            color: var(--main-font-second-color);
-            &::before {
-              content: "";
-              display: block;
-              width: 16px;
-              height: 16px;
-              background-color: var(--color);
-              border-radius: 50%;
-              margin-right: 8px;
-            }
-          }
-        }
-        .career-img {
-          position: absolute;
-          bottom: -10px;
-          left: 0;
-          width: 100%;
-          @media (max-width: 768px) {
-            position: static;
-          }
-        }
-      }
-      &.game {
-        min-height: 300px;
-        @media (max-width: 768px) {
-          min-height: 240px;
-        }
-      }
-      &.like {
-        min-height: 400px;
-        @media (max-width: 768px) {
-          min-height: 300px;
         }
       }
       &.image {
@@ -505,26 +354,6 @@ onMounted(() => {
           }
         }
       }
-      &.info {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        .info-item {
-          display: flex;
-          flex-direction: column;
-          margin-right: 32px;
-          .info-name {
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: var(--main-font-second-color);
-          }
-          .info-num {
-            font-size: 34px;
-            font-weight: bold;
-            color: var(--color);
-          }
-        }
-      }
     }
     &:last-child {
       margin-bottom: 0;
@@ -535,7 +364,6 @@ onMounted(() => {
     }
   }
 }
-
 @keyframes gradientFlow {
   0% {
     background-position: 0% 50%;

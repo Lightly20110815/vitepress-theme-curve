@@ -1,6 +1,4 @@
-// 链接数据
 const linkData = [
-  // 推荐数据
   {
     type: "rec",
     typeName: "本站",
@@ -14,7 +12,6 @@ const linkData = [
       },
     ],
   },
-  // 小伙伴们
   {
     type: "friends",
     typeName: "小伙伴们",
@@ -32,28 +29,14 @@ const linkData = [
         desc: "生命是灰色的，理论之树常青。",
         url: "https://www.khyan.top/",
       },
-       {
+      {
         name: "寻亦见北",
-        avatar: `https://www.xyjb.org/img/favicon.png`,
+        avatar: "https://www.xyjb.org/img/favicon.png",
         desc: "寻褶·见熵·北纬·柒文",
         url: "https://xyjb.org",
       },
     ],
   },
-   // 丢失
- // {
-  //  type: "lost",
-   // typeName: "走丢了",
-   // typeDesc: "因为各种原因失联的站点",
-   // typeList: [
-   //   {
-   //     name: "池鱼小栈",
-   //     avatar: "/images/logo/logo.webp",
-   //     desc: "｜д•´)!!",
-   //     url: "https://chiyu.it",
-   //   },
- //   ],
- // },
 ];
 
 export default linkData;
