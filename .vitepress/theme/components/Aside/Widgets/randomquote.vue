@@ -1,9 +1,12 @@
 <template>
-  <div class="random-quote s-card" @click="handleClick">
+  <div
+    v-if="!hidden"
+    class="random-quote s-card"
+    @click="handleClick"
+  >
     <div class="rq-left" aria-hidden="true">💬</div>
     <div class="rq-main" aria-live="polite">
       <p class="rq-content">{{ text }}</p>
-      <p v-if="error" class="rq-author">失败：{{ error }}</p>
     </div>
   </div>
 </template>
@@ -11,30 +14,24 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// 本地开发走本地代理；部署到 Vercel 后走同域 /api/deepseek
-const API_URL = import.meta.env?.DEV
+const API_URL = import.meta.env.DEV
   ? 'http://localhost:8787/api/deepseek'
   : '/api/deepseek'
 
 const text = ref('')
 const isStreaming = ref(false)
-const error = ref('')
+const hidden = ref(false)
 
-// 首次挂载自动生成
-onMounted(() => {
-  generate()
-})
+onMounted(() => generate())
 
-// 生成过程中点击无效；生成完成后点击可重新生成
-function handleClick () {
+async function handleClick() {
   if (isStreaming.value) return
   generate()
 }
 
-async function generate () {
-  if (isStreaming.value) return
+async function generate() {
   text.value = ''
-  error.value = ''
+  hidden.value = false
   isStreaming.value = true
 
   try {
@@ -73,26 +70,25 @@ async function generate () {
     })
 
     if (!resp.ok || !resp.body) {
-      throw new Error(`HTTP ${resp.status}`)
+      const errMsg = `DeepSeek API 请求失败：HTTP ${resp.status}`
+      console.error(errMsg)
+      hidden.value = true
+      throw new Error(errMsg)
     }
 
     const reader = resp.body.getReader()
     const decoder = new TextDecoder('utf-8')
-    let buf = ''
+    let buffer = ''
 
     while (true) {
       const { value, done } = await reader.read()
       if (done) break
-
-      buf += decoder.decode(value, { stream: true })
-      // SSE 按行解析
-      const lines = buf.split('\n')
-      buf = lines.pop() ?? ''
-
+      buffer += decoder.decode(value, { stream: true })
+      const lines = buffer.split('\n')
+      buffer = lines.pop() ?? ''
       for (const raw of lines) {
         const line = raw.trim()
-        if (!line || !line.startsWith('data:')) continue
-
+        if (!line.startsWith('data:')) continue
         const data = line.slice(5).trim()
         if (!data) continue
         if (data === '[DONE]') {
@@ -103,13 +99,17 @@ async function generate () {
           const json = JSON.parse(data)
           const delta = json?.choices?.[0]?.delta?.content ?? ''
           if (delta) text.value += delta
-        } catch {
-          // 忽略无法解析的片段（可能是 keepalive 等）
+        } catch (e) {
+          // 流式解析异常也输出
+          console.warn('DeepSeek SSE 解析异常：', e)
         }
       }
     }
-  } catch (e) {
-    error.value = e?.message ?? String(e)
+  } catch (err) {
+    console.error('DeepSeek 加载失败：', err)
+    hidden.value = true
+    // 主动抛出错误，能在 F12 控制台的红色 error 里看到完整堆栈
+    throw err
   } finally {
     isStreaming.value = false
   }
@@ -125,33 +125,22 @@ async function generate () {
   border: 1px solid var(--main-card-border);
   border-radius: 12px;
   background: var(--main-card-background);
-  box-shadow: var(--card-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.08));
+  box-shadow: var(--card-box-shadow, 0 2px 8px rgba(0,0,0,0.08));
   transition: box-shadow .18s ease;
-  user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
-  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+  user-select: none;
 }
-.random-quote, .random-quote * { user-select: none !important; }
-.random-quote ::selection { background: transparent !important; color: inherit !重要; }
-.random-quote ::-moz-selection { background: transparent !important; color: inherit !important; }
 .random-quote:hover {
-  background: var(--main-card-background) !important;
-  border-color: var(--main-card-border) !important;
-  box-shadow: var(--card-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.08)) !important;
+  background: var(--main-card-background);
+  border-color: var(--main-card-border);
 }
-.rq-left { font-size: 1.1rem; line-height: 1; opacity: .85; }
+.rq-left { font-size: 1.1rem; opacity: .85; }
 .rq-main { flex: 1 1 auto; min-width: 0; }
 .rq-content {
   margin: 0;
-  color: var(--main-text-1, var(--vp-c-text-1));
+  color: var(--main-text-1);
   line-height: 1.6;
   font-size: .95rem;
-  word-break: break-word;
-  white-space: pre-line; /* 处理换行 */
-}
-.rq-author {
-  margin: .4rem 0 0;
-  color: var(--main-text-2, var(--vp-c-text-2));
-  font-size: .85rem;
+  white-space: pre-line;
 }
 </style>
