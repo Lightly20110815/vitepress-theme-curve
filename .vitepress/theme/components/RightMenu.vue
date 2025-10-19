@@ -174,7 +174,7 @@
             </div>
           </div>
           <!-- 播放器控制 -->
-          <div v-if="playerShow" class="all-menu general player">
+          <div v-if="playerShow && playerData && playerData.name !== '未知曲目'" class="all-menu general player">
             <div class="data">
               <span class="name">{{ playerData.name }}</span>
               <span class="artist">{{ playerData.artist }}</span>
