@@ -118,6 +118,30 @@
             </span>
           </div>
         </div>
+                <span class="title">外观调整</span>
+        <div class="set-item">
+          <span class="set-label">调整明暗显示外观</span>
+          <div class="set-options">
+            <span
+              :class="['options', { choose: themeType === 'auto' }]"
+              @click="themeType = 'auto'"
+            >
+              跟随系统
+            </span>
+            <span
+              :class="['options', { choose: themeType === 'dark' }]"
+              @click="themeType = 'dark'"
+            >
+              深色
+            </span>
+            <span
+              :class="['options', { choose: themeType === 'light' }]"
+              @click="themeType = 'light'"
+            >
+              浅色
+            </span>
+          </div>
+        </div>
       </div>
     </Modal>
   </div>
