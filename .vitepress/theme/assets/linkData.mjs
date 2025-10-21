@@ -39,22 +39,10 @@ const linkData = [
         url: "https://luotianyi.eu/",
       },
       {
-        name: "洋洋",
-        avatar: "/images/friend/yangy.webp",
-        desc: "洋洋的小小Blog",
-        url: "https://yangy.co/",
-      },
-      {
         name: "幽默的小刘",
-        avatar: "/images/friend/lzch.jpg",
-        desc: "小刘的小小技术blog",
-        url: "https://www.lzch.top/",
-      },
-      {
-        name: "轻风",
-        avatar: "/images/friend/qingfeng.jpg",
-        desc: "茫茫人海，多么幸运才能遇见你",
-        url: "https://www.qingfengnb.cn/",
+        avatar: "/images/friend/lzch.webp",
+        desc: "每天分享不一样的知识内容",
+        url: "https://blog.lzch.top/",
       },
       {
         name: "SDG",
@@ -62,22 +50,34 @@ const linkData = [
         desc: "With you, through all.",
         url: "https://ddnsy.fun/",
       },
+      {
+        name: "浪小舟",
+        avatar: "/images/friend/lxz.webp",
+        desc: "向利而生，随心而活",
+        url: "https://blog.lonzov.top/",
+      },
     ],
   },
     // 丢失
- // {
-  //  type: "lost",
-   // typeName: "走丢了",
-   // typeDesc: "因为各种原因失联的站点",
-   // typeList: [
-   //   {
-   //     name: "池鱼小栈",
-   //     avatar: "/images/logo/logo.webp",
-   //     desc: "｜д•´)!!",
-   //     url: "https://chiyu.it",
-   //   },
- //   ],
- // },
+ {
+   type: "lost",
+   typeName: "走丢了",
+   typeDesc: "因为各种原因失联的站点",
+   typeList: [
+      {
+        name: "洋洋",
+        avatar: "/images/friend/yangy.webp",
+        desc: "洋洋的小小Blog",
+        url: "https://yangy.co/",
+      },
+      {
+        name: "轻风",
+        avatar: "/images/friend/qingfeng.jpg",
+        desc: "茫茫人海，多么幸运才能遇见你",
+        url: "https://www.qingfengnb.cn/",
+      },
+   ],
+ },
 ];
 
 export default linkData;

@@ -34,7 +34,7 @@ const getMusicListData = async () => {
     console.log(musicList);
     initAPlayer(musicList?.length ? musicList : []);
   } catch (error) {
-        // 新增：捕获到错误后，关闭播放器显示
+        // 新增：获取播放内容失败自动隐藏播放器
     if (store) { // 最好检查一下 store 是否存在
       store.playerShow = false;
       }
