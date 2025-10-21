@@ -108,14 +108,14 @@ export const themeConfig = {
         },
       ],
       // 预载 DocSearch
-      //[
-      //  "link",
-      //  {
-      //    href: "https://X5EBEZB53I-dsn.algolia.net",
-      //    rel: "preconnect",
-      //    crossorigin: "",
-      //  },
-     // ],
+      [
+       "link",
+       {
+         href: "https://0F1DUC8MAX-dsn.algolia.net",
+         rel: "preconnect",
+         crossorigin: "",
+       },
+     ],
     ],
   },
   // 导航栏菜单
@@ -382,7 +382,7 @@ export const themeConfig = {
   // 搜索
   // https://www.algolia.com/
   search: {
-    enable: false,
+    enable: true,
     appId: "0F1DUC8MAX",
     apiKey: "1f97c9169943484cfb9a05c825851ca4",
   },
