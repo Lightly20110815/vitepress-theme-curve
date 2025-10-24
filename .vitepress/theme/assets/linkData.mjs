@@ -56,6 +56,12 @@ const linkData = [
         desc: "向利而生，随心而活",
         url: "https://blog.lonzov.top/",
       },
+      {
+        name: "Hikaru",
+        avatar: "/images/friend/Hikaru.webp",
+        desc: "即使是人造的记忆，也有它存在的价值",
+        url: "https://www.mengxiblog.top/",
+      },
     ],
   },
     // 丢失
