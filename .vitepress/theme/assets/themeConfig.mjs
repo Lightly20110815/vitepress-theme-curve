@@ -398,9 +398,9 @@ export const themeConfig = {
   rewardData: {
     enable: true,
     // 微信二维码
-    wechat: "https://raw.chiyu.it/pic/pay/wx.webp",
+    wechat: "https://raw.20100907.xyz/pic/pay/wx.webp",
     // 支付宝二维码
-    alipay: "https://raw.chiyu.it/pic/pay/zfb.webp",
+    alipay: "https://raw.20100907.xyz/pic/pay/zfb.webp",
   },
   // 图片灯箱
   fancybox: {
