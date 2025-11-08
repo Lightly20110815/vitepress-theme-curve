@@ -62,6 +62,12 @@ const linkData = [
         desc: "即使是人造的记忆，也有它存在的价值",
         url: "https://www.mengxiblog.top/",
       },
+      {
+        name: "轻风",
+        avatar: "/images/friend/qingfeng.jpg",
+        desc: "茫茫人海，多么幸运才能遇见你",
+        url: "https://www.qingfengnb.cn/",
+      },
     ],
   },
     // 丢失
@@ -75,12 +81,6 @@ const linkData = [
         avatar: "/images/friend/yangy.webp",
         desc: "洋洋的小小Blog",
         url: "https://yangy.co/",
-      },
-      {
-        name: "轻风",
-        avatar: "/images/friend/qingfeng.jpg",
-        desc: "茫茫人海，多么幸运才能遇见你",
-        url: "https://www.qingfengnb.cn/",
       },
    ],
  },
