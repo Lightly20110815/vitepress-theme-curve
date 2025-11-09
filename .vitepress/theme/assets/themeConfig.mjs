@@ -162,16 +162,16 @@ export const themeConfig = {
           name: "主站",
           url: "/",
         },
-        {
-          icon: "/images/logo/other/hot.png",
-          name: "热榜",
-          url: "https://hot.chiyu.it",
-        },
-        {
-          icon: "/images/logo/other/nav.png",
-          name: "Nav",
-          url: "https://nav.chiyu.it",
-        },
+        // {
+        //   icon: "/images/logo/other/hot.png",
+        //   name: "热榜",
+        //   url: "https://hot.chiyu.it",
+        // },
+        // {
+        //   icon: "/images/logo/other/nav.png",
+        //   name: "Nav",
+        //   url: "https://nav.chiyu.it",
+        // },
       ],
     },
     {
@@ -182,11 +182,11 @@ export const themeConfig = {
           name: "检测",
           url: "https://status.chiyu.it",
         },
-        {
-          icon: "/images/logo/logo.webp",
-          name: "镜像站",
-          url: "https://backup.chiyu.it",
-        },
+        // {
+        //   icon: "/images/logo/logo.webp",
+        //   name: "镜像站",
+        //   url: "https://backup.chiyu.it",
+        // },
       ],
     },
   //  {
