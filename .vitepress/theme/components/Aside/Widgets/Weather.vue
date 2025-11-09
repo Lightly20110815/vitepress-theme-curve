@@ -59,9 +59,24 @@ onMounted(async () => {
     return
   }
   try {
-    const { adcode }        = await getAdcode(import.meta.env.VITE_WEATHER_KEY)
-    const { lives }         = await getWeather(import.meta.env.VITE_WEATHER_KEY, adcode)
-    weatherData.value       = lives[0]
+    // 获取地理编码信息，注意返回值结构可能不同
+    const adcodeRes = await getAdcode(import.meta.env.VITE_WEATHER_KEY)
+    // 尝试从可能的位置取出 adcode（兼容性保护）
+    const adcode =
+      adcodeRes?.adcode || (adcodeRes?.districts && adcodeRes.districts[0]?.adcode) || adcodeRes?.city || ''
+
+    const weatherRes = await getWeather(import.meta.env.VITE_WEATHER_KEY, adcode)
+    const lives = weatherRes?.lives
+
+    // 保护性检查：只有在 lives 为数组且有元素时才访问 [0]
+    if (Array.isArray(lives) && lives.length > 0) {
+      weatherData.value = lives[0]
+    } else {
+      // 打印返回体以便排查（不会抛出 undefined[0]）
+      console.warn('天气接口返回异常或无数据：', weatherRes)
+      error.value = true
+      emit('fetch-error', new Error('天气数据为空或格式不正确'))
+    }
   } catch (e) {
     console.error('获取天气失败：', e)
     error.value = true
