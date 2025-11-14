@@ -19,7 +19,7 @@ const linkData = [
     typeList: [
       {
         name: "池鱼小栈",
-        avatar: "/images/logo/logo.webp",
+        avatar: "https://chiyu.it/images/logo/logo.webp",
         desc: "｜д•´)!!",
         url: "https://chiyu.it",
       },
