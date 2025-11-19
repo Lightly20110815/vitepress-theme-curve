@@ -67,7 +67,7 @@ const dayCount = computed(() => {
 
 .title-name {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .event-name {
@@ -86,7 +86,7 @@ const dayCount = computed(() => {
 }
 
 .day-number {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 800;
   color: var(--vp-c-brand);
   vertical-align: middle;
