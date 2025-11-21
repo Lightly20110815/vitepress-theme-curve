@@ -118,7 +118,7 @@
             </span>
           </div>
         </div>
-                <span class="title">外观调整</span>
+        <span class="title">外观调整</span>
         <div class="set-item">
           <span class="set-label">调整明暗显示外观</span>
           <div class="set-options">

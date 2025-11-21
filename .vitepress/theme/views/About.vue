@@ -52,7 +52,11 @@
       <div class="about-item child">
         <div
           class="about-item map image"
+<<<<<<< HEAD
           style="background-image: url(https://api.ddnsy.fun/Location.png)"
+=======
+          style="background-image: url(https://raw.20100907.xyz/other/tc.png)"
+>>>>>>> upstream/master
         >
           <span class="position">我现在住在 <strong>中国，安徽省，合肥市</strong></span>
         </div>

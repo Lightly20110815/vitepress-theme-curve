@@ -41,7 +41,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import { getAdcode, getWeather } from '@/api'
 
 // 声明会在请求出错时抛出的事件

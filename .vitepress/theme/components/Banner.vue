@@ -41,151 +41,131 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue';
-import { mainStore } from "@/store";
-import { getHitokoto } from "@/api"; // 确保此路径正确，指向您获取一言的函数
+import { mainStore } from '@/store';
+import { getHitokoto } from '@/api';
 
 const store = mainStore();
 const { theme } = useData();
+
 const props = defineProps({
-  // 类型
-  type: {
-    type: String,
-    default: "text",
-  },
-  // 高度
-  height: {
-    type: String,
-    default: "half",
-  },
-  // 标题
-  title: {
-    type: String,
-    default: "这里是标题",
-  },
-  // 简介
-  desc: {
-    type: String,
-    default: "这里是简介",
-  },
-  // 注释
-  footer: {
-    type: String,
-    default: "",
-  },
-  // 背景
-  image: {
-    type: String,
-    default: "",
-  },
+  type: { type: String, default: 'text' },
+  height: { type: String, default: 'half' },
+  title: { type: String, default: '这里是标题' },
+  desc: { type: String, default: '这里是简介' },
+  footer: { type: String, default: '' },
+  image: { type: String, default: '' },
 });
 
-const hitokotoData = ref(null);
-const hitokotoInitialTimeout = ref(null); // 用于初次加载的定时器
-const bannerType = ref(null);
-// —— 新增：自动切换是否激活标志 —— 
-const autoSwitchActive = ref(false)
-
-// 初始时显示默认标语
+// 存储一言数据和状态
+const hitokotoData = ref({ hitokoto: '', from: '', from_who: '' });
 const isHitokotoDisplayed = ref(false);
+
+// 自动轮询相关
+const hitokotoInitialTimeout = ref(null);
+const autoSwitchInterval = ref(null);
+const autoSwitchActive = ref(false);
+
+// 是否已经手动点击过一次，停止自动并锁定手动模式
+const disableAuto = ref(false);
+
+// 默认标语
 const defaultSlogan = theme.value.siteMeta.description;
 
-// 用于跟踪是否是“第一次点击”一言以切换到默认标语
-const isFirstClickAfterInitialHitokoto = ref(true);
+// 计算展示的文字：若当前为“一言”状态则显示一言，否则显示默认标语
+const displayText = computed(() =>
+  isHitokotoDisplayed.value && hitokotoData.value.hitokoto
+    ? hitokotoData.value.hitokoto
+    : defaultSlogan
+);
 
-const displayText = computed(() => {
-  if (isHitokotoDisplayed.value && hitokotoData.value?.hitokoto) {
-    return hitokotoData.value.hitokoto;
-  } else {
-    return defaultSlogan;
+// 点击处理：
+// 1. 若当前仍在自动模式，第一次点击会停止自动、显示默认标语
+// 2. 之后的点击均为手动获取新一言
+async function toggleHitokoto() {
+  if (!disableAuto.value && autoSwitchActive.value) {
+    // 第一次点击：关闭自动、显示默认
+    pauseHitokotoCycle();
+    disableAuto.value = true;
+    isHitokotoDisplayed.value = false;
+    return;
   }
-});
+  // 手动获取并显示一言
+  await fetchAndShowHitokoto();
+}
 
-// 获取一言数据
-const getHitokotoData = async () => {
+// 真正执行一次请求并显示结果
+async function fetchAndShowHitokoto() {
   try {
     const result = await getHitokoto();
-    const { hitokoto, from, from_who } = result;
-    hitokotoData.value = { hitokoto, from, from_who };
-    isHitokotoDisplayed.value = true; // 获取成功后设置为显示一言
-  } catch (error) {
-    // $message.error("一言获取失败"); // 假设 $message 可用
-    console.error("一言获取失败：", error);
-    // 如果获取失败，仍然保持默认标语状态
-    isHitokotoDisplayed.value = false; // 确保显示的是默认标语
-  }
-};
-// —— 将自动切换逻辑拆分成单独函数，不清理定时器 —— 
-async function autoToggleHitokoto() {
-  if (isHitokotoDisplayed.value && !isFirstClickAfterInitialHitokoto.value) {
-    // 隐藏一言，显示默认
-    isHitokotoDisplayed.value = false
-  } else {
-    // 拉取新一言
-    await getHitokotoData()
+    hitokotoData.value = {
+      hitokoto: result.hitokoto,
+      from: result.from,
+      from_who: result.from_who
+    };
+    isHitokotoDisplayed.value = true;
+  } catch (err) {
+    console.error('一言获取失败：', err);
   }
 }
-// 点击切换
-// 点击时：停止自动切换，并切回默认文案
-const toggleHitokoto = async () => {
-  if (autoSwitchActive.value) {
-    // 停掉自动循环
-    clearInterval(autoSwitchInterval.value)
-    autoSwitchActive.value = false
-    // 切回默认文案
-    isHitokotoDisplayed.value = false
-    return
+
+// 自动轮询执行
+async function autoToggleHitokoto() {
+  await fetchAndShowHitokoto();
+}
+
+// 启动首次延迟 + 后续自动轮询
+function startHitokotoCycle() {
+  if (disableAuto.value) return;
+  hitokotoInitialTimeout.value = setTimeout(async () => {
+    await fetchAndShowHitokoto();
+    autoSwitchInterval.value = setInterval(autoToggleHitokoto, 7000);
+    autoSwitchActive.value = true;
+  }, 4000);
+}
+
+// 暂停所有定时/请求
+function pauseHitokotoCycle() {
+  if (hitokotoInitialTimeout.value) {
+    clearTimeout(hitokotoInitialTimeout.value);
+    hitokotoInitialTimeout.value = null;
   }
-  // 只做手动切换（不再重启自动切换）
-  if (isHitokotoDisplayed.value && !isFirstClickAfterInitialHitokoto.value) {
-    isHitokotoDisplayed.value = false
-  } else {
-    await getHitokotoData()
+  if (autoSwitchInterval.value) {
+    clearInterval(autoSwitchInterval.value);
+    autoSwitchInterval.value = null;
+  }
+  autoSwitchActive.value = false;
+}
+
+// Page Visibility API：切换标签页时暂停，切回时（若未手动禁用）恢复
+function handleVisibilityChange() {
+  if (document.hidden) {
+    pauseHitokotoCycle();
+  } else if (!disableAuto.value && !autoSwitchActive.value && !hitokotoInitialTimeout.value) {
+    startHitokotoCycle();
   }
 }
 
 // 滚动至首页
-const scrollToHome = () => {
-  const bannerDom = document.getElementById("main-banner");
-  if (!bannerDom) return false;
-  scrollTo({
-    top: bannerDom.offsetHeight,
-    behavior: "smooth",
-  });
-};
+function scrollToHome() {
+  const bannerDom = document.getElementById('main-banner');
+  if (!bannerDom) return;
+  scrollTo({ top: bannerDom.offsetHeight, behavior: 'smooth' });
+}
 
-watch(
-  () => store.bannerType,
-  (val) => {
-    bannerType.value = val;
-  },
-);
-
-
-// —— 新增 ——
-// 自动切换的 interval 引用
-const autoSwitchInterval = ref(null)
+// 同步外部 store 的 bannerType
+const bannerType = ref(store.bannerType);
+watch(() => store.bannerType, val => (bannerType.value = val));
 
 onMounted(() => {
-  if (props.type === "text") {
-    // 4 秒后首次拉取并显示一言
-    hitokotoInitialTimeout.value = setTimeout(async () => {
-      await getHitokotoData()
-      // 拉取完成后启动自动切换
-      autoSwitchInterval.value = setInterval(() => {
-        autoToggleHitokoto()
-      }, 7000)
-      autoSwitchActive.value = true
-    }, 4000)
+  if (props.type === 'text') {
+    startHitokotoCycle();
+    document.addEventListener('visibilitychange', handleVisibilityChange);
   }
-})
+});
 
 onBeforeUnmount(() => {
-  // 清除初始加载的定时器，防止组件卸载后仍然执行
-  if (hitokotoInitialTimeout.value) {
-    clearTimeout(hitokotoInitialTimeout.value);
-    clearInterval(autoSwitchInterval.value)
-  }
+  pauseHitokotoCycle();
+  document.removeEventListener('visibilitychange', handleVisibilityChange);
 });
 </script>
 

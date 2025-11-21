@@ -46,7 +46,6 @@ import { mainStore, initializeCursor } from "@/store";
 import { calculateScroll, specialDayGray } from "@/utils/helper";
 import cursorInit from "@/utils/cursor.js";
 
-import { createApp } from 'vue';
 import App from '@/App.vue';
 
 const app = createApp(App);

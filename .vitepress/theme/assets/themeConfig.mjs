@@ -60,7 +60,27 @@ export const themeConfig = {
       // Google Fonts 镜像（Fira Code 等等）
       ["link", { rel: "preconnect", href: "https://use.sevencdn.com" }],
       ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }],
+<<<<<<< HEAD
       ["link", { crossorigin: "anonymous", href: "https://use.sevencdn.com/css2?family=Fira+Code:wght@300..700&display=swap", rel: "stylesheet" }],
+=======
+      [
+        "link",
+        {
+          crossorigin: "anonymous",
+          href: "https://use.sevencdn.com/css2?family=Fira+Code:wght@300..700&display=swap",
+          rel: "stylesheet",
+        },
+      ],
+      // 预载 DocSearch
+      [
+       "link",
+       {
+         href: "https://0F1DUC8MAX-dsn.algolia.net",
+         rel: "preconnect",
+         crossorigin: "",
+       },
+     ],
+>>>>>>> upstream/master
     ],
   },
 
@@ -96,11 +116,56 @@ export const themeConfig = {
     {
       name: "项目",
       list: [
+<<<<<<< HEAD
         { icon: "https://api.ddnsy.fun/clogo.webp", name: "主站", url: "/" },
         { icon: "https://api.ddnsy.fun/hot.jpg", name: "热榜 By 池鱼鱼", url: "https://hot.chiyu.it" },
         { icon: "https://api.ddnsy.fun/nav.jpg", name: "Nav By 池鱼鱼", url: "https://nav.chiyu.it" },
       ],
     },
+=======
+        {
+          icon: "/images/logo/logo.webp",
+          name: "主站",
+          url: "/",
+        },
+        // {
+        //   icon: "/images/logo/other/hot.png",
+        //   name: "热榜",
+        //   url: "https://hot.chiyu.it",
+        // },
+        // {
+        //   icon: "/images/logo/other/nav.png",
+        //   name: "Nav",
+        //   url: "https://nav.chiyu.it",
+        // },
+      ],
+    },
+    {
+      name: "服务",
+      list: [
+        {
+          icon: "/images/uptime-favicon.ico",
+          name: "检测",
+          url: "https://status.chiyu.it",
+        },
+        // {
+        //   icon: "/images/logo/logo.webp",
+        //   name: "镜像站",
+        //   url: "https://backup.chiyu.it",
+        // },
+      ],
+    },
+  //  {
+   //   name: "项目",
+   //   list: [
+   //     {
+   //       icon: "/images/logo/logo.webp",
+   //       name: "占位符",
+   //       url: "#",
+   //     },
+   //   ],
+   // },
+>>>>>>> upstream/master
   ],
 
   // ------------------------------------------------
@@ -205,17 +270,55 @@ export const themeConfig = {
       text:
         "我一直想要一个地方，可以随手记下那些写代码时迸发的灵感，和日常里不愿忘记的瞬间。所以，便有了这座“数字花园”。<br><br>这里大概会有一些关于<strong>前端开发</strong>的技术笔记，也会有我的碎碎念和生活感悟。它就像我的一个小树洞，安放着我的成长和困惑。",
     },
+<<<<<<< HEAD
     toc: { enable: true },                    // 目录（依据文章标题层级生成）
     randomQuote: { enable: true },            // 一言/语录（需主题内置或自行实现）
     tags: { enable: true },                   // 标签云
     countDown: {                              // 倒计时（自定义目标）
+=======
+    // 目录
+    toc: {
+      enable: true,
+    },
+    // 标签
+    tags: {
+      enable: true,
+    },
+    // 倒计时
+    countDown: {
+      enable: true,
+      // 倒计时日期
+      data: {
+        name: "生日",
+        date: "2026-09-07",
+      },
+    },
+    timing: {
+      enable: true,
+      name: "池鱼", //要显示的名字
+      event: "活着", //事件名称
+      date: "2010-09-07", //出生日期
+    },
+    // 站点数据
+    siteData: {
+      enable: true,
+    },
+    // 天气数据
+    weather: {
+>>>>>>> upstream/master
       enable: true,
       data: { name: "🎉生日", date: "2026-08-15" }, // YYYY-MM-DD
     },
+<<<<<<< HEAD
     birthDate: { enable: true, name: "Sy Yann", date: "2011-08-15" }, // 个人生日展示
     HelloGithub: { enable: true },            // 例：GitHub 榜单/卡片（依主题实现）
     siteData: { enable: true },               // 站点统计（文章数/标签数等）
     weather: { enable: true },                // 天气组件（需在主题/前端里实现数据源）
+=======
+    HelloGithub: {
+      enable: false,
+    },
+>>>>>>> upstream/master
   },
 
   // ------------------------------------------------
@@ -259,9 +362,17 @@ export const themeConfig = {
   // - 建议使用体积较小的 webp
   // ------------------------------------------------
   rewardData: {
+<<<<<<< HEAD
     enable: false,
     wechat: "https://raw.chiyu.it/pic/pay/wx.webp",
     alipay: "https://raw.chiyu.it/pic/pay/zfb.webp",
+=======
+    enable: true,
+    // 微信二维码
+    wechat: "https://raw.20100907.xyz/pic/pay/wx.webp",
+    // 支付宝二维码
+    alipay: "https://raw.20100907.xyz/pic/pay/zfb.webp",
+>>>>>>> upstream/master
   },
 
   // ------------------------------------------------

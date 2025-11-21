@@ -21,13 +21,24 @@ const player = ref(null);
 const playerDom = ref(null);
 
 // 获取播放列表
+    
+    // 先显示播放器
+    if (store) { // 最好检查一下 store 是否存在
+      store.playerShow = true;
+    };
+
 const getMusicListData = async () => {
   try {
+
     const musicList = await getMusicList(url, id, server, type);
     console.log(musicList);
     initAPlayer(musicList?.length ? musicList : []);
   } catch (error) {
-    $message.error("获取播放列表失败，请重试");
+        // 新增：获取播放内容失败自动隐藏播放器
+    if (store) { // 最好检查一下 store 是否存在
+      store.playerShow = false;
+      }
+    // $message.error("获取播放列表失败，请重试");
     initAPlayer([]);
   }
 };
@@ -66,8 +77,13 @@ const initAPlayer = async (list) => {
     window.$player = player.value;
   } catch (error) {
     console.error("初始化播放器出错：", error);
-  }
-};
+        
+    // 新增：捕获到错误后，关闭播放器显示
+    if (store) { // 最好检查一下 store 是否存在
+      store.playerShow = false;
+      }
+    }
+  };
 
 // 获取当前播放歌曲信息
 const getMusicData = () => {

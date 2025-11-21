@@ -1,6 +1,6 @@
 <template>
   <!-- 倒计时 -->
-  <div class="count-down s-card">
+  <div v-if="theme.aside.countDown.enable" class="count-down s-card">
     <div class="count-left">
       <span class="text"> 距离 </span>
       <span class="name">{{ theme.aside.countDown.data.name }}</span>
@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup> 
 import { getTimeRemaining, getDaysUntil } from "@/utils/timeTools";
 
 const { theme } = useData();

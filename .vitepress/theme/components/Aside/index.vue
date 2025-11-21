@@ -3,6 +3,7 @@
     <Hello v-if="theme.aside.hello.enable" class="weidgets" />
     <div class="sticky">
       <Toc v-if="theme.aside.toc.enable && showToc" class="weidgets" />
+<<<<<<< HEAD
       <Weather
         v-if="theme.aside.weather.enable && showWeather"
         class="weidgets"
@@ -23,6 +24,20 @@
         v-if="theme.aside.HelloGithub.enable && showHot"
         @fetch-error="onHotError"
       />
+=======
+  <Weather
+    v-if="theme.aside.weather.enable && showWeather"
+    class="weidgets"
+    @fetch-error="onWeatherError"
+  />
+      <Countdown v-if="theme.aside.countDown.enable" class="weidgets" />
+      <Timing v-if="theme.aside.timing.enable" class="weidgets" />
+      <!-- HelloGithub 热榜 -->
+    <HelloGithubHot
+      v-if="theme.aside.HelloGithub.enable && showHot"
+      @fetch-error="onHotError"
+    />
+>>>>>>> upstream/master
       <Tags v-if="theme.aside.tags.enable" class="weidgets" />
       <SiteData v-if="theme.aside.siteData.enable" class="weidgets" />
     </div>
@@ -48,7 +63,9 @@ const props = defineProps({
   },
 });
 
+// 已有：天气组件的显示开关
 const showWeather = ref(true)
+<<<<<<< HEAD
 const showHot = ref(true)
 
 // 判断当前时间是否在 23:00 到 4:00
@@ -58,11 +75,19 @@ const isNightTime = computed(() => {
   return hour >= 23 || hour < 4;
 });
 
+=======
+// 新增：热榜组件的显示开关
+const showHot = ref(true)
+>>>>>>> upstream/master
 // 一旦收到子组件的 fetch-error 事件，就把 showWeather 置为 false
 function onWeatherError(err) {
   console.error('天气组件获取失败：', err)
   showWeather.value = false
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
 function onHotError(err) {
   console.error('HelloGithub 热榜获取失败：', err)
   showHot.value = false

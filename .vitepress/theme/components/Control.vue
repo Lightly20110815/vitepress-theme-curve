@@ -40,7 +40,6 @@
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue'; 
 import { mainStore } from '@/store'; // **修正 Pinia store 的导入路径 **
 
 const store = mainStore(); // 

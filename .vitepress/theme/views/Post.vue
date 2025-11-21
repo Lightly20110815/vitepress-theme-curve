@@ -41,13 +41,13 @@
         <!-- 热度 -->
         <span class="hot meta">
           <i class="iconfont icon-fire" />
-          <span id="twikoo_visitors" class="artalk-pv-count">0</span>
+          <span id="twikoo_visitors" class="artalk-pv-count">-</span>
         </span>
         <!-- 评论数 -->
-        <span class="chat meta hover" @click="commentRef?.scrollToComments">
+        <!-- <span class="chat meta hover" @click="commentRef?.scrollToComments">
           <i class="iconfont icon-chat" />
           <span id="twikoo_comments" class="artalk-comment-count">0</span>
-        </span>
+        </span> -->
       </div>
     </div>
     <div class="post-content">

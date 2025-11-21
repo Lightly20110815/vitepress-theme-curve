@@ -39,8 +39,8 @@ const linkData = [
         name: "薄荷の小屋",
         avatar: "https://api.hoshiroko.com/img/avatar.jpg",
         desc: "越是拼命往前伸手，渴望之物越是渐行渐远",
-        url: "https://www.hoshiroko.com", 
-      }
+        url: "https://www.hoshiroko.com",
+      },
     ],
   },
 ];

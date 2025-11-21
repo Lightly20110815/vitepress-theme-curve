@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useData } from 'vitepress';
 
 const { frontmatter } = useData(); // frontmatter 已经在这里声明了
