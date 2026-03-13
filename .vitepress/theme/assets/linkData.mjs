@@ -7,8 +7,8 @@ const linkData = [
       {
         name: "Sy's Digital Garden",
         avatar: "https://api.ddnsy.fun/clogo.webp",
-        desc: "With you, through all.",
-        url: "https://ddnsy.fun",
+        desc: "重构时间线，再次重逢",
+        url: "https://404yann.com",
       },
     ],
   },
