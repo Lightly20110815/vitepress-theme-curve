@@ -41,6 +41,12 @@ const linkData = [
         desc: "越是拼命往前伸手，渴望之物越是渐行渐远",
         url: "https://www.hoshiroko.com",
       },
+      {
+        name: "纸月 Paper Moon",
+        avatar: "https://avatars.githubusercontent.com/u/195516213?v=4",
+        desc: "マジやばくね",
+        url: "https://tangyuan0821.com",
+      },
     ],
   },
 ];
