@@ -168,7 +168,7 @@ export const themeConfig = {
         text: "关于 Sy",
         items: [
           { text: "个人主页", link: "https://hp.ddnsy.store/", newTab: true },
-          { text: "Sy 的个人卡片", link: "https://profile.404yann.com/" },
+          { text: "Sy 的个人卡片", link: "https://20110815.xyz/" },
           { text: "关于 Sy", link: "/pages/aboutme" },
         ],
       },
