@@ -156,8 +156,4 @@ onMounted(() => {
     text-align: right;
   }
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> upstream/master
