@@ -14,7 +14,7 @@ export const themeConfig = {
   // ------------------------------------------------
   siteMeta: {
     title: "Sy's Digital Garden",              // 站点标题（用于 <title> 与部分主题展示）
-    description: "With you, through all.",      // 站点描述（用于 SEO/OG 摘要）
+    description: "重构时间线，再次重逢",      // 站点描述（用于 SEO/OG 摘要）
     logo: "https://api.ddnsy.fun/clogo.webp",   // 顶部 Logo，建议使用 webp/svg 减少体积
     site: "https://ddnsy.fun",                  // 站点基地址（部分组件用于跳转/生成绝对链接）
     lang: "zh-CN",
