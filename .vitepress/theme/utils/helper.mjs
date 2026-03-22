@@ -249,15 +249,13 @@ export const shuffleArray = (array) => {
 // 特殊纪念日置灰
 export const specialDayGray = () => {
   const specialDays = [
+    { date: "3-18", name: "言箴甄 (Twitter @yanzhenzhen21) 于26/3/18自杀" },
     { date: "4-4", name: "清明节" },
     { date: "5-12", name: "汶川大地震纪念日" },
-    { date: "6-4", name: "不能说的日子,1989" },
+    { date: "6-4", name: "1989" },
     { date: "7-7", name: "中国人民抗日战争纪念日" },
     { date: "9-18", name: "九·一八事变纪念日" },
     { date: "11-20", name: "跨性别追念日" },
-    { date: "11-27", name: "不能说的日子,2022" },
-    { date: "11-28", name: "不能说的日子,2022" },
-    { date: "11-29", name: "不能说的日子,2022" },
     { date: "12-13", name: "南京大屠杀死难者国家公祭日" },
   ];
   // 获取当天日期
