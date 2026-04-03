@@ -47,6 +47,12 @@ const linkData = [
         desc: "マジやばくね",
         url: "https://tangyuan0821.com",
       },
+      {
+        name: "𝑬𝒑𝒉𝒆𝒊𝒂's Think",
+        avatar: "https://api.ddnsy.fun/ehpiea.jpg",
+        desc: "她的聊天角",
+        url: "https://watakushi.desuwa.org/",
+      },
     ],
   },
 ];
