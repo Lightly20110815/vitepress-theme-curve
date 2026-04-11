@@ -19,6 +19,7 @@
         class="weidgets"
       /> -->
       <RandomQuote v-if="theme.aside.randomQuote.enable" class="weidgets" />
+      <DailyPoetry class="weidgets" /> <!-- 今日诗词 -->
 
       <HelloGithubHot
         v-if="theme.aside.HelloGithub.enable && showHot"
@@ -34,6 +35,7 @@
 import Birthday from './Widgets/Birthday.vue' // 生日组件
 import RandomQuote from './Widgets/randomquote.vue' // 随机一言组件
 import NowPlaying from './Widgets/NowPlaying.vue' // 此刻正在听组件
+import DailyPoetry from './Widgets/DailyPoetry.vue' // 今日诗词组件
 // import Hello from './Widgets/Hello.vue' // 打招呼组件
 // import Toc from './Widgets/Toc.vue' // 目录组件
 // import Weather from './Widgets/Weather.vue' // 天气组件

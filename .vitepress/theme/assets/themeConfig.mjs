@@ -217,6 +217,7 @@ export const themeConfig = {
     siteData: { enable: true },               // 站点统计（文章数/标签数等）
     weather: { enable: true },                // 天气组件（需在主题/前端里实现数据源）
     nowPlaying: { enable: true },             // 此刻正在听（显示当前播放歌曲信息）
+    dailyPoetry: { enable: true },            // 今日诗词（调用今日诗词 API）
   },
 
   // ------------------------------------------------
