@@ -9,6 +9,7 @@
         @fetch-error="onWeatherError"
       />
       <Countdown class="weidgets" />
+      <NowPlaying class="weidgets" /> <!-- 此刻正在听 -->
       
       <Birthday class="weidgets" /> <!-- 新增生日组件 这里需要class才可以与上下隔开 不然会粘在一起-->
 
@@ -32,6 +33,7 @@
 <script setup>
 import Birthday from './Widgets/Birthday.vue' // 生日组件
 import RandomQuote from './Widgets/randomquote.vue' // 随机一言组件
+import NowPlaying from './Widgets/NowPlaying.vue' // 此刻正在听组件
 // import Hello from './Widgets/Hello.vue' // 打招呼组件
 // import Toc from './Widgets/Toc.vue' // 目录组件
 // import Weather from './Widgets/Weather.vue' // 天气组件

@@ -29,7 +29,7 @@ export const mainStore = defineStore("main", {
       // 个性化配置显示
       showSeetings: false,
       // 播放器数据
-      playState: true,
+      playState: false,
       playerShow: true,
       playerVolume: 0.7,
       playerData: {

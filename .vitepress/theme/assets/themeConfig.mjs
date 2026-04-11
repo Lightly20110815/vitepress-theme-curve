@@ -216,6 +216,7 @@ export const themeConfig = {
     HelloGithub: { enable: true },            // 例：GitHub 榜单/卡片（依主题实现）
     siteData: { enable: true },               // 站点统计（文章数/标签数等）
     weather: { enable: true },                // 天气组件（需在主题/前端里实现数据源）
+    nowPlaying: { enable: true },             // 此刻正在听（显示当前播放歌曲信息）
   },
 
   // ------------------------------------------------
