@@ -2,7 +2,7 @@
   <div v-if="theme.aside.dailyPoetry?.enable !== false && loaded" class="daily-poetry s-card">
     <div class="dp-header">
       <span class="dp-icon">📜</span>
-      <span class="dp-label">今日诗词</span>
+      <span class="dp-label">每日诗词</span>
     </div>
     <div class="dp-body">
       <p class="dp-content" :class="{ 'fade-in': showContent }">{{ content }}</p>
@@ -11,12 +11,6 @@
         <span v-if="author" class="dp-author">{{ author }}</span>
       </div>
     </div>
-    <button class="dp-refresh" @click="fetchPoetry" title="换一首" :class="{ spinning: refreshing }">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-        <path d="M1 4v6h6" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
   </div>
 </template>
 
@@ -28,11 +22,9 @@ const origin = ref('')
 const author = ref('')
 const loaded = ref(false)
 const showContent = ref(false)
-const refreshing = ref(false)
 
 const fetchPoetry = async () => {
   try {
-    refreshing.value = true
     showContent.value = false
     const res = await fetch('https://v2.jinrishici.com/one.json', {
       headers: { 'X-User-Token': getToken() }
@@ -43,25 +35,20 @@ const fetchPoetry = async () => {
       origin.value = data.data.origin?.title || '佚名'
       author.value = data.data.origin?.author || ''
       loaded.value = true
-      // 触发淡入动画
       setTimeout(() => {
         showContent.value = true
-        refreshing.value = false
       }, 50)
     }
   } catch (e) {
-    console.warn('获取今日诗词失败：', e)
-    // 使用备用内容
+    console.warn('获取每日诗词失败：', e)
     content.value = '山有木兮木有枝，心悦君兮君不知。'
     origin.value = '越人歌'
     author.value = '佚名'
     loaded.value = true
     showContent.value = true
-    refreshing.value = false
   }
 }
 
-// 获取或生成 token（用于今日诗词 API）
 const getToken = () => {
   if (typeof localStorage === 'undefined') return ''
   let token = localStorage.getItem('jinrishici-token')
@@ -87,10 +74,6 @@ onMounted(() => {
   &:hover {
     border-color: var(--main-color);
     box-shadow: 0 4px 16px -4px var(--main-color-bg);
-
-    .dp-refresh {
-      opacity: 0.6;
-    }
   }
 }
 
@@ -162,46 +145,5 @@ onMounted(() => {
   padding: 1px 8px;
   border-radius: 10px;
   font-weight: 500;
-}
-
-.dp-refresh {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--main-font-color);
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s, background 0.2s, transform 0.3s;
-  padding: 0;
-
-  &:hover {
-    opacity: 1 !important;
-    background: var(--main-color-bg);
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-
-  &.spinning svg {
-    animation: spin-refresh 0.6s ease;
-  }
-
-  svg {
-    display: block;
-  }
-}
-
-@keyframes spin-refresh {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 </style>
