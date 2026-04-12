@@ -161,15 +161,13 @@
               <i class="iconfont icon-copy"></i>
               <span class="name">复制本页地址</span>
             </div>
-            <!-- 明暗模式 -->
+            <!-- 明暗模式（显示下一个要切换到的模式） -->
             <div class="btn" @click.stop="store.changeThemeType">
               <i
                 :class="`iconfont icon-${themeType === 'auto' ? 'dark' : themeType === 'dark' ? 'light' : 'auto'}`"
               />
               <span class="name">
-                {{
-                  themeType === "auto" ? "深色模式" : themeType === "dark" ? "浅色模式" : "跟随系统"
-                }}
+                {{ themeType === "auto" ? "深色模式" : themeType === "dark" ? "浅色模式" : "跟随系统" }}
               </span>
             </div>
           </div>
@@ -230,7 +228,7 @@ import { smoothScrolling, shufflePost, copyText, copyImage, downloadImage } from
 const router = useRouter();
 const store = mainStore();
 const { theme } = useData();
-const { useRightMenu, themeType, playerShow, playerVolume, playState, playerData } =
+const { useRightMenu, themeType, themeValue, playerShow, playerVolume, playState, playerData } =
   storeToRefs(store);
 
 // 右键菜单数据

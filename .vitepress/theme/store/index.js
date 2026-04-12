@@ -99,13 +99,15 @@ export const mainStore = defineStore("main", {
         }
         return false;
       }
+      // 循环切换: auto → dark → light → auto
       this.themeType === "auto"
         ? (this.themeType = "dark")
         : this.themeType === "dark"
           ? (this.themeType = "light")
           : (this.themeType = "auto");
 
-      // 计算实际生效的 themeValue 并设置 CSS 变量
+      // 更新实际生效的主题值（themeValue 和 CSS 变量）
+      // 注意：HTML dark/light class 由 App.vue 的 watcher 统一处理
       this.updateActualThemeValue();
 
       // 弹窗提示
@@ -127,9 +129,10 @@ export const mainStore = defineStore("main", {
       }
     },
 
-    // 新增方法：更新实际生效的主题值并设置CSS变量
+    // 更新实际生效的主题值并设置光标 CSS 变量
+    // 注意：不操作 html 的 dark/light class，由 App.vue changeSiteThemeType 统一管理
     updateActualThemeValue() {
-      if (typeof window === 'undefined' || typeof document === 'undefined') return; // 确保在客户端
+      if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
       let actualTheme;
       if (this.themeType === 'auto') {
@@ -140,25 +143,18 @@ export const mainStore = defineStore("main", {
       }
       this.themeValue = actualTheme;
 
+      // 仅更新光标相关 CSS 变量
       const root = document.documentElement;
       if (actualTheme === 'light') {
         root.style.setProperty('--cursor-bg-color', '#000');
       } else {
         root.style.setProperty('--cursor-bg-color', '#fff');
       }
-      
-      if (actualTheme === 'dark') {
-          root.classList.add('dark');
-          root.classList.remove('light');
-      } else {
-          root.classList.add('light');
-          root.classList.remove('dark');
-      }
     },
 
-    // 新增action: 外部触发更新主题（用于系统主题变化）
+    // 外部触发更新主题（用于系统主题变化时）
     triggerThemeUpdate() {
-        if (typeof window === 'undefined') return; // 确保在客户端
+        if (typeof window === 'undefined') return;
         this.updateActualThemeValue();
         if (appCursorInstance) {
             appCursorInstance.setThemeType(this.themeType);

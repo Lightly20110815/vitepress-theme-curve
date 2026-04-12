@@ -1,6 +1,8 @@
 <!-- 文章页面 -->
 <template>
   <div v-if="postMetaData" class="post">
+    <!-- 阅读进度条 -->
+    <ReadingProgress />
     <div class="post-meta">
       <div class="meta">
         <div class="categories">

@@ -115,21 +115,27 @@ const changeSiteThemeType = () => {
   };
   // 必要数据
   const htmlElement = document.documentElement;
-  console.log("当前模式：", themeType.value);
   // 清除所有 class
   Object.values(themeClasses).forEach((themeClass) => {
     htmlElement.classList.remove(themeClass);
   });
   // 添加新的 class
+  let actualTheme;
   if (themeType.value === "auto") {
     // 根据当前操作系统颜色方案更改明暗主题
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const autoThemeClass = systemPrefersDark ? themeClasses.dark : themeClasses.light;
-    htmlElement.classList.add(autoThemeClass);
-    themeValue.value = autoThemeClass;
+    actualTheme = systemPrefersDark ? themeClasses.dark : themeClasses.light;
   } else if (themeClasses[themeType.value]) {
-    htmlElement.classList.add(themeClasses[themeType.value]);
-    themeValue.value = themeClasses[themeType.value];
+    actualTheme = themeClasses[themeType.value];
+  }
+  if (actualTheme) {
+    htmlElement.classList.add(actualTheme);
+    themeValue.value = actualTheme;
+    // 同步更新光标 CSS 变量
+    htmlElement.style.setProperty(
+      '--cursor-bg-color',
+      actualTheme === 'light' ? '#000' : '#fff'
+    );
   }
   if (backgroundType.value === "image") {
     htmlElement.classList.add("image");
