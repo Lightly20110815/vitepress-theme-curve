@@ -108,17 +108,12 @@ async function fetchAndShowHitokoto() {
   }
 }
 
-// 自动轮询执行
-async function autoToggleHitokoto() {
-  await fetchAndShowHitokoto();
-}
-
 // 启动首次延迟 + 后续自动轮询
 function startHitokotoCycle() {
   if (disableAuto.value) return;
   hitokotoInitialTimeout.value = setTimeout(async () => {
     await fetchAndShowHitokoto();
-    autoSwitchInterval.value = setInterval(autoToggleHitokoto, 7000);
+    autoSwitchInterval.value = setInterval(fetchAndShowHitokoto, 7000);
     autoSwitchActive.value = true;
   }, 4000);
 }
@@ -199,17 +194,16 @@ onBeforeUnmount(() => {
     font-size: 1.25rem;
     opacity: 0.8;
     animation: fade-up-opacity 0.6s 0.1s backwards;
-  .text {
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; // WebKit 引擎兼容性
-    -webkit-box-orient: vertical; // WebKit 引擎兼容性
-
-    line-clamp: 2; // 标准的 line-clamp 属性，提高兼容性
+    .text {
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-clamp: 2;
+    }
   }
-}
   .icon-up {
     font-size: 20px;
     position: absolute;

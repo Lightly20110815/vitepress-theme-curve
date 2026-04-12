@@ -31,7 +31,6 @@ export const getHitokoto = async () => {
     if (!useFallbackAPI) {
       // 主 API 失败，切换到备用 API
       useFallbackAPI = true;
-      console.log("切换到备用 API：", fallbackUrl);
       // 递归调用以使用备用 API
       return await getHitokoto();
     }

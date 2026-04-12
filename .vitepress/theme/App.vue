@@ -8,7 +8,7 @@
   <!-- 导航栏 -->
   <Nav />
   <!-- 主内容 -->
-  <main :class="['mian-layout', { loading: loadingStatus, 'is-post': isPostPage }]">
+<main :class="['main-layout', { loading: loadingStatus, 'is-post': isPostPage }]">
     <!-- 404 -->
     <NotFound v-if="page.isNotFound" />
     <!-- 首页 -->
@@ -41,47 +41,18 @@
 </template>
 
 <script setup>
-import { storeToRefs, createPinia } from "pinia";
+import { storeToRefs } from "pinia";
 import { mainStore, initializeCursor } from "@/store";
 import { calculateScroll, specialDayGray } from "@/utils/helper";
-import cursorInit from "@/utils/cursor.js";
-
-import App from '@/App.vue';
-
-const app = createApp(App);
-const pinia = createPinia();
-
-app.use(pinia);
 
 // 在 Pinia store 初始化后调用 initializeCursor
 initializeCursor();
-// const screenWidth = ref(0);
 const route = useRoute();
 const store = mainStore();
 const { frontmatter, page, theme } = useData();
 const { loadingStatus, footerIsShow, themeValue, themeType, backgroundType, fontFamily, fontSize } =
   storeToRefs(store);
 
-  onMounted(() => {
-  // 自定义鼠标
-  cursorInit();
-  })
-  //2025.06.12更新：在 Next.js 的服务端渲染过程中，应用会在服务器端先进行渲染
-  //而在服务器端的 JavaScript 环境中，并没有浏览器提供的 window 对象。
-  //最简单的解决方法是确保在客户端代码中访问 window
-  //可以通过判断代码是否在浏览器环境中运行来避免在服务器端渲染时执行涉及 window 的代码
-  //onMounted 钩子： 在 setup 或 data 中避免直接访问 window。
-  //将依赖 window 对象的代码放入 onMounted 钩子中，因为 onMounted 只会在组件挂载到DOM后执行。
-  // onMounted(() => {
-  // 只有在浏览器环境才会执行
-  // if (typeof window !== 'undefined') {
-  //   console.log(window.innerWidth);
-  // }
-// })
-// onMounted(() => {
-  // 这里的代码只会在浏览器环境中执行
-//   screenWidth.value = window.screen.width;
-// });
 // 右键菜单
 const rightMenuRef = ref(null);
 
@@ -167,7 +138,6 @@ watch(
 );
 
 onMounted(() => {
-  console.log(frontmatter.value, page.value, theme.value);
   // 全站置灰
   specialDayGray();
   // 更改主题类别
@@ -187,11 +157,13 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("scroll", calculateScroll);
   window.removeEventListener("contextmenu", openRightMenu);
+  window.removeEventListener("copy", copyTip);
+  window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", changeSiteThemeType);
 });
 </script>
 
 <style lang="scss" scoped>
-.mian-layout {
+.main-layout {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;

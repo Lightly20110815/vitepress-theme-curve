@@ -87,7 +87,6 @@ const getCurrentPage = () => {
 // 根据页数计算列表数据
 const postData = computed(() => {
   const page = getCurrentPage();
-  console.log("当前页数：", page);
   let data = null;
   // 分类数据
   if (props.showCategories) {
@@ -110,7 +109,6 @@ const restoreScrollY = (val) => {
   if (typeof window === "undefined" || val) return false;
   const scrollY = store.lastScrollY;
   nextTick().then(() => {
-    console.log("滚动位置：", scrollY);
     // 平滑滚动
     window.scrollTo({
       top: scrollY,

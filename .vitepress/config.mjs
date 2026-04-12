@@ -31,8 +31,8 @@ export default withPwa(
     base: '/',
     // 最后更新时间戳
     lastUpdated: true,
-    // 主题
-    appearance: "dark",
+    // 主题 - 禁用VitePress内置主题切换，由主题自己控制
+    appearance: false,
     // Head
     head: themeConfig.inject.header,
     // sitemap

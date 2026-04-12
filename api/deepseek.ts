@@ -1,24 +1,37 @@
 // api/deepseek.ts
 export const config = { runtime: 'edge' }
 
+// 允许的来源域名（生产环境请限制为实际域名）
+const ALLOWED_ORIGINS = ['https://ddnsy.fun', 'https://www.ddnsy.fun']
+
+function getAllowOrigin(req: Request): string {
+  const origin = req.headers.get('Origin') || ''
+  if (ALLOWED_ORIGINS.includes(origin)) return origin
+  // 开发环境允许 localhost
+  if (origin.startsWith('http://localhost')) return origin
+  return ALLOWED_ORIGINS[0]
+}
+
 // 小工具：返回 JSON 响应并带 CORS
-function json(data: any, status = 200) {
+function json(data: any, status = 200, origin = ALLOWED_ORIGINS[0]) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': origin,
     },
   })
 }
 
 export default async function handler(req: Request) {
+  const allowOrigin = getAllowOrigin(req)
+
   // 1) 处理 CORS 预检
   if (req.method === 'OPTIONS') {
     return new Response(null, {
       status: 204,
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': allowOrigin,
         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
       },
@@ -26,7 +39,7 @@ export default async function handler(req: Request) {
   }
 
   if (req.method !== 'POST') {
-    return json({ error: 'Method Not Allowed' }, 405)
+    return json({ error: 'Method Not Allowed' }, 405, allowOrigin)
   }
 
   const apiKey = process.env.DEEPSEEK_API_KEY
@@ -77,7 +90,7 @@ export default async function handler(req: Request) {
     return new Response(text || 'Upstream error', {
       status: upstream.status,
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': allowOrigin,
         'Content-Type': upstream.headers.get('content-type') || 'text/plain; charset=utf-8',
       },
     })
@@ -92,7 +105,7 @@ export default async function handler(req: Request) {
         'Content-Type': 'text/event-stream; charset=utf-8',
         'Cache-Control': 'no-cache, no-transform',
         'Connection': 'keep-alive',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': allowOrigin,
       },
     })
   } else {
@@ -101,7 +114,7 @@ export default async function handler(req: Request) {
       status: 200,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': allowOrigin,
       },
     })
   }

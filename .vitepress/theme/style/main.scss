@@ -285,3 +285,31 @@ a {
     transform: scale(0.5);
   }
 }
+
+// View Transitions API 页面切换动画
+::view-transition-old(root) {
+  animation: fade-out 0.25s ease-in-out;
+}
+::view-transition-new(root) {
+  animation: fade-in 0.25s ease-in-out;
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

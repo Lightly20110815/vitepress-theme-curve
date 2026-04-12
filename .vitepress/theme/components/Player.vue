@@ -21,17 +21,9 @@ const player = ref(null);
 const playerDom = ref(null);
 
 // 获取播放列表
-    
-    // 先显示播放器
-    if (store) { // 最好检查一下 store 是否存在
-      store.playerShow = true;
-    };
-
 const getMusicListData = async () => {
   try {
-
     const musicList = await getMusicList(url, id, server, type);
-    console.log(musicList);
     initAPlayer(musicList?.length ? musicList : []);
   } catch (error) {
         // 新增：获取播放内容失败自动隐藏播放器
@@ -65,11 +57,9 @@ const initAPlayer = async (list) => {
       getMusicData();
     });
     player.value?.on("play", () => {
-      console.log("开始播放");
       playState.value = true;
     });
     player.value?.on("pause", () => {
-      console.log("暂停播放");
       playState.value = false;
     });
     getMusicData();
@@ -93,7 +83,6 @@ const getMusicData = () => {
     // 歌曲信息
     const songName = songInfo.querySelector(".aplayer-title").innerText;
     const songArtist = songInfo.querySelector(".aplayer-author").innerText.replace(" - ", "");
-    console.log(songName, songArtist);
     // 更新信息
     playerData.value = {
       name: songName || "未知曲目",

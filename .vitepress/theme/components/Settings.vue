@@ -1,17 +1,17 @@
 <!-- 全局设置 -->
 <template>
   <div class="settings">
-    <div class="set-btn s-card" @click="store.changeShowStatus('showSeetings')">
+    <div class="set-btn s-card" @click="store.changeShowStatus('showSettings')">
       <i class="iconfont icon-style"></i>
       <span class="set-text">个性化配置</span>
     </div>
     <!-- 设置面板 -->
     <Modal
-      :show="store.showSeetings"
+      :show="store.showSettings"
       title="个性化配置"
       titleIcon="style"
-      @mask-click="store.changeShowStatus('showSeetings')"
-      @modal-close="store.changeShowStatus('showSeetings')"
+      @mask-click="store.changeShowStatus('showSettings')"
+      @modal-close="store.changeShowStatus('showSettings')"
     >
       <div class="set-list">
         <span class="title">字体</span>

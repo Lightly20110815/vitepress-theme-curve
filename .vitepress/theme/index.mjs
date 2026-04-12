@@ -14,9 +14,6 @@ import "@/style/main.scss";
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 
-// InstantSearch
-import InstantSearch from "vue-instantsearch/vue3/es";
-
 // Theme
 const Theme = {
   // extends: Theme,
@@ -26,13 +23,19 @@ const Theme = {
   enhanceApp({ app, router, siteData }) {
     // 挂载
     app.use(pinia);
-    app.use(InstantSearch);
     app.component("LazyLoader", LazyLoader);
     // 插件
     enhanceAppWithTabs(app);
-    // 路由守卫
+    // 路由守卫 — 使用 View Transitions API 实现页面切换动画
     router.onBeforeRouteChange = (to) => {
-      routeChange("before", to);
+      // 如果浏览器支持 View Transitions API，则触发过渡动画
+      if (typeof document !== "undefined" && document.startViewTransition) {
+        document.startViewTransition(() => {
+          routeChange("before", to);
+        });
+      } else {
+        routeChange("before", to);
+      }
     };
     router.onAfterRouteChanged = (to) => {
       routeChange("after", to);

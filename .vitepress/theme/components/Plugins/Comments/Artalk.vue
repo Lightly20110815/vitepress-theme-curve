@@ -40,11 +40,9 @@ const initArtalk = async () => {
       if (props.fill) fillComments(props.fill);
     });
     artalk.value?.on("list-loaded", () => {
-      console.log("评论已加载完毕");
       jumpRedirect(null, theme.value, true);
     });
     artalk.value?.on("comment-updated", () => {
-      console.log("评论已更新完毕");
       jumpRedirect(null, theme.value, true);
     });
     if (typeof $comment === "undefined" && typeof window !== "undefined") {
@@ -58,7 +56,6 @@ const initArtalk = async () => {
 
 // 填充评论区
 const fillComments = (data) => {
-  console.log("填充评论：", data);
   // 获取评论元素
   const commentDom = document.querySelector("#comment-dom.fill");
   if (!commentDom) return false;

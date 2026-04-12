@@ -70,15 +70,6 @@
           >
             <i class="iconfont icon-shuffle"></i>
           </div>
-          <!-- 搜索 -->
-          <div
-            v-if="theme.search.enable"
-            class="menu-btn nav-btn"
-            title="全站搜索"
-            @click="store.changeShowStatus('searchShow')"
-          >
-            <i class="iconfont icon-search"></i>
-          </div>
           <!-- 中控台 -->
           <div
             id="open-control"
@@ -120,10 +111,6 @@
     </nav>
     <!-- 移动端菜单 -->
     <MobileMenu />
-    <!-- 全局搜索 -->
-    <ClientOnly>
-      <Search v-if="theme.search.enable" />
-    </ClientOnly>
   </header>
 </template>
 

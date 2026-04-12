@@ -45,6 +45,11 @@
           <i class="iconfont icon-fire" />
           <span id="twikoo_visitors" class="artalk-pv-count">-</span>
         </span>
+        <!-- 预计阅读时长 -->
+        <span class="reading-time meta" v-if="readingTime > 0">
+          <i class="iconfont icon-time" />
+          约 {{ readingTime }} 分钟
+        </span>
         <!-- 评论数 -->
         <!-- <span class="chat meta hover" @click="commentRef?.scrollToComments">
           <i class="iconfont icon-chat" />
@@ -119,8 +124,23 @@ const postMetaData = computed(() => {
   return theme.value.postData.find((item) => item.id === postId);
 });
 
+// 预计阅读时长（中文按 300 字/分钟计算）
+const readingTime = ref(0);
+
 onMounted(() => {
   initFancybox(theme.value);
+  // 计算阅读时长
+  nextTick(() => {
+    const contentEl = document.getElementById("page-content");
+    if (contentEl) {
+      const text = contentEl.innerText || "";
+      // 中文字符数 + 英文单词数
+      const chineseChars = (text.match(/[\u4e00-\u9fff]/g) || []).length;
+      const englishWords = (text.replace(/[\u4e00-\u9fff]/g, "").match(/\b[a-zA-Z]+\b/g) || []).length;
+      const totalWords = chineseChars + englishWords;
+      readingTime.value = Math.max(1, Math.ceil(totalWords / 300));
+    }
+  });
 });
 </script>
 

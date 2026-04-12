@@ -26,6 +26,7 @@ const props = defineProps({
 const container = ref(null)
 const video = ref(null)
 let observer = null
+let hlsInstance = null
 
 // 全局缓存 HLS.js 加载 Promise，避免重复加载
 let hlsJsLoader = null
@@ -59,9 +60,13 @@ async function initPlayer() {
     // 动态加载 HLS.js，仅加载一次
     const Hls = await loadHlsJsOnce()
     if (Hls.isSupported()) {
-      const hls = new Hls()
-      hls.loadSource(props.src)
-      hls.attachMedia(video.value)
+      // 销毁旧实例
+      if (hlsInstance) {
+        hlsInstance.destroy()
+      }
+      hlsInstance = new Hls()
+      hlsInstance.loadSource(props.src)
+      hlsInstance.attachMedia(video.value)
     } else {
       console.warn('当前浏览器不支持 HLS.js 播放')
     }
@@ -94,5 +99,9 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   if (observer) observer.disconnect()
+  if (hlsInstance) {
+    hlsInstance.destroy()
+    hlsInstance = null
+  }
 })
 </script>
