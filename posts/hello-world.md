@@ -8,7 +8,8 @@ tags:
   - 你好世界
   - 建站
   - 心情
-description: 这里是一个小小的角落，一个勉强算是“家”的地方。
+description: 这里是一个小小的角落，一个勉强算是"家"的地方。
+articleGPT: true
 ---
 
 ## 一个开始
