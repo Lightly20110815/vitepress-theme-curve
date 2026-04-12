@@ -18,7 +18,7 @@
           <i class="iconfont icon-date"></i>
           建站天数
         </span>
-        <span class="num">{{ daysFromNow(theme.since) }} 天</span>
+        <span class="num">{{ siteDays }} 天</span>
       </div>
       <div class="data-item">
         <span class="name">
@@ -44,7 +44,14 @@ import { daysFromNow } from "@/utils/helper";
 
 const { theme } = useData();
 
+// 使用 ref 保证建站天数在客户端实时计算，避免 SSR 构建时固化
+const siteDays = ref(0);
+
 onMounted(() => {
+  // 客户端挂载时用当前实际日期计算建站天数
+  siteDays.value = daysFromNow(theme.value.since);
+
+  // 加载不蒜子统计
   loadScript("https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", {
     async: true,
     reload: true,
