@@ -26,12 +26,9 @@ const getMusicListData = async () => {
     const musicList = await getMusicList(url, id, server, type);
     initAPlayer(musicList?.length ? musicList : []);
   } catch (error) {
-        // 新增：获取播放内容失败自动隐藏播放器
-    if (store) { // 最好检查一下 store 是否存在
-      store.playerShow = false;
-      }
-    // $message.error("获取播放列表失败，请重试");
-    initAPlayer([]);
+    // 获取播放内容失败自动隐藏播放器
+    store.playerShow = false;
+    console.error("获取播放列表失败：", error);
   }
 };
 
@@ -67,12 +64,9 @@ const initAPlayer = async (list) => {
     window.$player = player.value;
   } catch (error) {
     console.error("初始化播放器出错：", error);
-        
-    // 新增：捕获到错误后，关闭播放器显示
-    if (store) { // 最好检查一下 store 是否存在
-      store.playerShow = false;
-      }
-    }
+    // 捕获到错误后，关闭播放器显示
+    store.playerShow = false;
+  }
   };
 
 // 获取当前播放歌曲信息

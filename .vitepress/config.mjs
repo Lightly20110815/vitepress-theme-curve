@@ -94,8 +94,7 @@ export default withPwa(
       resolve: {
         // 配置路径别名
         alias: {
-          // eslint-disable-next-line no-undef
-          "@": path.resolve(__dirname, "./theme"),
+          "@": path.resolve(process.cwd(), ".vitepress/theme"),
         },
       },
       css: {

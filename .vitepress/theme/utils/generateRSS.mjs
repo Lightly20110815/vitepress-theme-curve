@@ -28,11 +28,11 @@ export const createRssFile = async (config, themeConfig) => {
   let posts = await createContentLoader("posts/**/*.md", {
     render: true,
   }).load();
-  // 日期降序排序
+  // 日期降序排序（缺失日期的文章排在最后）
   posts = posts.sort((a, b) => {
-    const dateA = new Date(a.frontmatter.date);
-    const dateB = new Date(b.frontmatter.date);
-    return dateB - dateA;
+    const dateA = a.frontmatter.date ? new Date(a.frontmatter.date).getTime() : 0;
+    const dateB = b.frontmatter.date ? new Date(b.frontmatter.date).getTime() : 0;
+    return (Number.isNaN(dateB) ? 0 : dateB) - (Number.isNaN(dateA) ? 0 : dateA);
   });
   for (const { url, frontmatter } of posts) {
     // 仅保留最近 10 篇文章
@@ -40,14 +40,20 @@ export const createRssFile = async (config, themeConfig) => {
     // 文章信息
     let { title, description, date } = frontmatter;
     // 处理日期
-    if (typeof date === "string") date = new Date(date);
+    let validDate = new Date();
+    if (date) {
+      const parsedDate = new Date(date);
+      if (!Number.isNaN(parsedDate.getTime())) {
+        validDate = parsedDate;
+      }
+    }
     // 添加文章
     feed.addItem({
       title,
       id: `${hostLink}${url}`,
       link: `${hostLink}${url}`,
       description,
-      date,
+      date: validDate,
       // updated,
       author: [
         {

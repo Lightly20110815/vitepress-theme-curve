@@ -165,23 +165,27 @@ export const copyText = async (data) => {
  * @param {string} imageURL 要复制到剪贴板的图片的URL
  */
 export const copyImage = async (imageURL) => {
-  if (!navigator.clipboard) {
+  if (!navigator.clipboard?.write) {
     console.error("浏览器不支持 Clipboard API");
+    $message.error("当前浏览器不支持复制图片");
     return;
   }
   try {
     const response = await fetch(imageURL);
+    if (!response.ok) throw new Error(`图片请求失败: ${response.status}`);
     const blob = await response.blob();
-    await navigator.clipboard.write([
-      new ClipboardItem({
-        [blob.type]: blob,
-      }),
-    ]);
-    console.log("图片已复制到剪贴板");
+    // ClipboardItem.supports 可用来检测支持类型（Chromium），Firefox 降级
+    if (window.ClipboardItem?.supports) {
+      const type = window.ClipboardItem.supports(blob.type) ? blob.type : "image/png";
+      await navigator.clipboard.write([new ClipboardItem({ [type]: blob })]);
+    } else {
+      // Firefox 等不支持 ClipboardItem 的浏览器：使用 write() 直接写入数组
+      await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
+    }
     $message.success("图片已复制到剪贴板");
   } catch (error) {
     console.error("复制图片出错：", error);
-    $message.error("复制图片错误，请重试");
+    $message.error("当前浏览器不支持复制图片，请尝试右键保存");
   }
 };
 

@@ -78,6 +78,11 @@ watch(
     document.body.style.overflowY = val ? "hidden" : "";
   },
 );
+
+// 组件卸载时恢复 body 滚动，防止 show=true 时路由跳转导致页面卡死
+onBeforeUnmount(() => {
+  document.body.style.overflowY = "";
+});
 </script>
 
 <style lang="scss" scoped>

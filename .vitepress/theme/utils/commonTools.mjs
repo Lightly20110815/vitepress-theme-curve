@@ -115,13 +115,13 @@ export const jumpRedirect = (html, themeConfig, isDom = false) => {
         if (link.getAttribute("target") === "_blank") {
           // 检查链接是否包含排除的类
           if (excludeClass.some((className) => link.classList.contains(className))) {
-            return false;
+            return;
           }
           const linkHref = link.getAttribute("href");
           // 存在链接且非中转页
           if (linkHref && !linkHref.includes(redirectPage)) {
-            // Base64
-            const encodedHref = btoa(linkHref);
+            // Base64（支持 Unicode，与 Node 端 Buffer.from 行为一致）
+            const encodedHref = btoa(unescape(encodeURIComponent(linkHref)));
             const redirectLink = `${redirectPage}?url=${encodedHref}`;
             // 保存原始链接
             link.setAttribute("original-href", linkHref);
@@ -130,6 +130,7 @@ export const jumpRedirect = (html, themeConfig, isDom = false) => {
           }
         }
       });
+      return true;
     } else {
       const $ = load(html);
       // 替换符合条件的标签

@@ -4,11 +4,11 @@ import { getThemeConfig } from "../.vitepress/init.mjs";
 const postData = await getAllPosts();
 const themeConfig = await getThemeConfig();
 
-// 每页文章数
-const postsPerPage = themeConfig.postSize;
+// 每页文章数 (Fallback to 10 if postSize is undefined or 0)
+const postsPerPage = themeConfig?.postSize || 10;
 
 // 计算总页数
-const totalPages = Math.ceil(postData.length / postsPerPage);
+const totalPages = Math.ceil((postData?.length || 0) / postsPerPage);
 
 // 文章分页动态路由
 export default {

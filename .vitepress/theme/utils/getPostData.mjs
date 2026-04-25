@@ -61,19 +61,22 @@ export const getAllPosts = async () => {
           // 解析 front matter
           const { data } = matter(content);
           const { title, date, categories, description, tags, top, cover } = data;
+          // 处理日期，如果不存在则使用文件创建时间
+          const postDate = date ? new Date(date) : new Date(birthtimeMs);
+          const validDate = !Number.isNaN(postDate.getTime()) ? postDate : new Date();
           // 计算文章的过期天数
           const expired = Math.floor(
-            (new Date().getTime() - new Date(date).getTime()) / (1000 * 60 * 60 * 24),
+            (new Date().getTime() - validDate.getTime()) / (1000 * 60 * 60 * 24),
           );
           // 返回文章对象
           return {
             id: generateId(item),
             title: title || "未命名文章",
-            date: date ? new Date(date).getTime() : birthtimeMs,
+            date: validDate.getTime(),
             lastModified: mtimeMs,
             expired,
-            tags,
-            categories,
+            tags: Array.isArray(tags) ? tags : (typeof tags === "string" ? tags.split(",").map(t => t.trim()).filter(Boolean) : []),
+            categories: Array.isArray(categories) ? categories : (typeof categories === "string" ? categories.split(",").map(c => c.trim()).filter(Boolean) : []),
             description,
             regularPath: `/${item.replace(".md", ".html")}`,
             top,
@@ -108,7 +111,7 @@ export const getAllType = (postData) => {
     // 处理标签
     if (typeof item.tags === "string") {
       // 以逗号分隔
-      item.tags = item.tags.split(",");
+      item.tags = item.tags.split(",").map((t) => t.trim()).filter(Boolean);
     }
     // 遍历文章的每个标签
     item.tags.forEach((tag) => {
@@ -141,7 +144,7 @@ export const getAllCategories = (postData) => {
     // 处理标签
     if (typeof item.categories === "string") {
       // 以逗号分隔
-      item.categories = item.categories.split(",");
+      item.categories = item.categories.split(",").map((c) => c.trim()).filter(Boolean);
     }
     // 遍历文章的每个标签
     item.categories.forEach((tag) => {

@@ -218,7 +218,7 @@
         try {
           const urlParams = new URLSearchParams(window.location.search);
           const encodedUrl = urlParams.get("url");
-          jumpLink = atob(encodedUrl);
+          jumpLink = decodeURIComponent(escape(atob(encodedUrl)));
           urlDom.innerHTML = jumpLink;
           const urlHostname = new URL(jumpLink).hostname;
 
