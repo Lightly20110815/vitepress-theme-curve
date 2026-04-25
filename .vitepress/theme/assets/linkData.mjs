@@ -53,6 +53,12 @@ const linkData = [
         desc: "她的聊天角",
         url: "https://watakushi.desuwa.org/",
       },
+      {
+        name: "HosinoNeko’s Website",
+        avatar: "https://avatars.githubusercontent.com/u/177436503?v=4",
+        desc: "點解我眼角長期都帶住淚？因為我一直被困喺一個暗無天日嘅十月入面",
+        url: "https://hosinoneko.me/",
+      },
     ],
   },
 ];
