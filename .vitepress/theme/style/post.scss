@@ -111,7 +111,7 @@
         opacity: 0.8;
         background-color: var(--main-color);
         border-radius: 4px;
-        transition: all 0.3s;
+        transition: height 0.3s, opacity 0.3s, bottom 0.3s, left 0.3s, right 0.3s;
       }
       &:hover {
         &::before {
@@ -538,7 +538,7 @@
         font-family: var(--main-font-family);
         background-color: transparent;
         border-bottom: 2px solid transparent;
-        transition: all 0.3s;
+        transition: height 0.3s, opacity 0.3s, bottom 0.3s, left 0.3s, right 0.3s;
         cursor: pointer;
         &[aria-selected="true"] {
           color: var(--main-color);

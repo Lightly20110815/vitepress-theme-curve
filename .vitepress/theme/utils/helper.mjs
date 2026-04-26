@@ -24,7 +24,7 @@ export const calculateScroll = throttle(
       console.error("计算滚动时出现错误：", error);
     }
   },
-  300,
+  100,
   true,
 );
 

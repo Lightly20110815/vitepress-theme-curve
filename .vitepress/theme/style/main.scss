@@ -151,9 +151,9 @@ body {
 a {
   text-decoration: none;
   color: var(--main-font-color);
-  transition: all 0.3s;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s, box-shadow 0.3s, opacity 0.3s, transform 0.3s;
   .iconfont {
-    transition: all 0.3s;
+    transition: color 0.3s;
   }
   &:hover {
     color: var(--main-color);
@@ -196,7 +196,7 @@ a {
   background-color: var(--main-card-background);
   border: 1px solid var(--main-card-border);
   box-shadow: 0 8px 16px -4px var(--main-border-shadow);
-  transition: all 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, opacity 0.3s, transform 0.3s;
   cursor: pointer;
   &:hover {
     &.hover {

@@ -61,9 +61,9 @@ const coverLoaded = (e) => {
     }
   }
   .cover {
-    width: auto;
-    height: auto;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     opacity: 0;
     transition:
       filter 0.3s,

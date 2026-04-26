@@ -144,6 +144,7 @@ const { site, theme, frontmatter, page } = useData();
     width: 100vw;
     height: 60px;
     background-color: var(--main-card-background);
+    backdrop-filter: blur(20px);
     transition:
       background-color 0.3s,
       backdrop-filter 0.3s;
@@ -159,6 +160,7 @@ const { site, theme, frontmatter, page } = useData();
     }
     &.top {
       background-color: transparent;
+      backdrop-filter: blur(0);
       outline: 0px;
       &::after {
         opacity: 0;
@@ -524,7 +526,7 @@ const { site, theme, frontmatter, page } = useData();
         justify-content: center;
         width: 35px;
         height: 35px;
-        transition: all 0.3s;
+        transition: width 0.3s, opacity 0.3s, transform 0.3s, margin 0.3s;
         cursor: pointer;
         .to-top-btn {
           position: absolute;
