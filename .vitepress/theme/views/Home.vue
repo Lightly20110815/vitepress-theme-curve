@@ -26,6 +26,8 @@
       <!-- 侧边栏 -->
       <Aside />
     </div>
+    <!-- 红色警示弹窗 -->
+    <SyWarning />
   </div>
 </template>
 
