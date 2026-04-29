@@ -23,21 +23,68 @@ const author = ref('')
 const loaded = ref(false)
 const showContent = ref(false)
 
+// 获取当天日期键
+const getTodayKey = () => {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+// 清理过期缓存
+const clearOldCache = (todayKey) => {
+  if (typeof localStorage === 'undefined') return
+  Object.keys(localStorage).forEach((key) => {
+    if (key.startsWith('daily-poetry-cache-') && key !== 'daily-poetry-cache-' + todayKey) {
+      localStorage.removeItem(key)
+    }
+  })
+}
+
 const fetchPoetry = async () => {
   try {
     showContent.value = false
-    const res = await fetch('https://v2.jinrishici.com/one.json', {
-      headers: { 'X-User-Token': getToken() }
-    })
+    const todayKey = getTodayKey()
+    const cacheKey = 'daily-poetry-cache-' + todayKey
+
+    // 优先读取当天缓存
+    if (typeof localStorage !== 'undefined') {
+      const cached = localStorage.getItem(cacheKey)
+      if (cached) {
+        const data = JSON.parse(cached)
+        content.value = data.content
+        origin.value = data.origin
+        author.value = data.author
+        loaded.value = true
+        setTimeout(() => {
+          showContent.value = true
+        }, 50)
+        return
+      }
+    }
+
+    // 无缓存则请求新数据（v1 免 token 接口）
+    const res = await fetch('https://v1.jinrishici.com/all.json')
     const data = await res.json()
-    if (data.status === 'success' && data.data) {
-      content.value = data.data.content
-      origin.value = data.data.origin?.title || '佚名'
-      author.value = data.data.origin?.author || ''
+    if (data && data.content) {
+      content.value = data.content
+      origin.value = data.origin || '佚名'
+      author.value = data.author || ''
       loaded.value = true
       setTimeout(() => {
         showContent.value = true
       }, 50)
+
+      // 写入当天缓存
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(
+          cacheKey,
+          JSON.stringify({
+            content: content.value,
+            origin: origin.value,
+            author: author.value,
+          })
+        )
+        clearOldCache(todayKey)
+      }
     }
   } catch (e) {
     console.warn('获取每日诗词失败：', e)
@@ -47,16 +94,6 @@ const fetchPoetry = async () => {
     loaded.value = true
     showContent.value = true
   }
-}
-
-const getToken = () => {
-  if (typeof localStorage === 'undefined') return ''
-  let token = localStorage.getItem('jinrishici-token')
-  if (!token) {
-    token = 'default-' + Math.random().toString(36).substring(2, 15)
-    localStorage.setItem('jinrishici-token', token)
-  }
-  return token
 }
 
 onMounted(() => {
