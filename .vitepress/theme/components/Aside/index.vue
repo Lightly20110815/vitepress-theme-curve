@@ -1,6 +1,7 @@
 <template>
   <aside class="main-aside">
     <Hello v-if="theme.aside.hello.enable" class="widgets" />
+    <RandomPost />
     <div class="sticky">
       <Toc v-if="theme.aside.toc.enable && showToc" class="widgets" />
       <Weather
@@ -19,6 +20,7 @@
       />
       <Tags v-if="theme.aside.tags.enable" class="widgets" />
       <SiteData v-if="theme.aside.siteData.enable" class="widgets" />
+      <SiteTimer v-if="theme.aside.siteTimer?.enable" class="widgets" />
     </div>
   </aside>
 </template>
@@ -28,6 +30,7 @@ import Birthday from './Widgets/Birthday.vue'
 import RandomQuote from './Widgets/randomquote.vue'
 import NowPlaying from './Widgets/NowPlaying.vue'
 import DailyPoetry from './Widgets/DailyPoetry.vue'
+import SiteTimer from './Widgets/SiteTimer.vue'
 const { theme } = useData(); 
 const props = defineProps({
   // 显示目录

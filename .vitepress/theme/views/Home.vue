@@ -26,6 +26,7 @@
       <!-- 侧边栏 -->
       <Aside />
     </div>
+    <ContributionHeatmap />
     <!-- 红色警示弹窗 -->
     <SyWarning />
   </div>

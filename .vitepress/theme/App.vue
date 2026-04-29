@@ -38,6 +38,10 @@
   <RightMenu ref="rightMenuRef" />
   <!-- 全局消息 -->
   <Message />
+  <!-- 光标拖尾 -->
+  <TrailingCursor />
+  <!-- 点击粒子特效 -->
+  <ClickParticles />
 </template>
 
 <script setup>

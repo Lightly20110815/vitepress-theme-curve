@@ -1,6 +1,6 @@
 <!-- AI 摘要（真实 AI 生成 + 本地回退） -->
 <template>
-  <div v-if="frontmatter.articleGPT" class="article-gpt s-card">
+  <div v-if="frontmatter.articleGPT && show" class="article-gpt s-card">
     <div class="title">
       <span class="name" @click="router.go('#')">
         <i class="iconfont icon-robot"></i>
@@ -37,6 +37,7 @@ const router = useRouter();
 const loading = ref(true);
 const waitTimeOut = ref(null);
 const abstractData = ref("");
+const show = ref(true);
 const showIndex = ref(0);
 const showType = ref(false);
 const abortController = ref(null);
@@ -75,7 +76,7 @@ const fetchAISummary = async () => {
 
   const content = getArticleContent();
   if (!content) {
-    abstractData.value = "无法获取文章内容";
+    show.value = false;
     loading.value = false;
     return;
   }
@@ -156,7 +157,7 @@ const fetchAISummary = async () => {
   } catch (error) {
     if (error.name === "AbortError") return;
     console.error("AI 摘要生成失败：", error);
-    abstractData.value = "AI 摘要生成失败，请稍后重试";
+    show.value = false;
   } finally {
     loading.value = false;
   }
@@ -187,8 +188,7 @@ const typeWriter = (text = null) => {
     }
   } catch (error) {
     loading.value = false;
-    abstractData.value = "摘要生成失败";
-    $message.error("摘要生成失败，请重试");
+    show.value = false;
     console.error("摘要生成失败：", error);
   }
 };

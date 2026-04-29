@@ -2,11 +2,9 @@
   <div v-if="type === 'text'" :class="['banner', bannerType]" id="main-banner">
     <h1 class="title">你好，欢迎来到{{ theme.siteMeta.title }}</h1>
     <div class="subtitle">
-      <Transition name="fade" mode="out-in">
-        <span :key="displayText" class="text" @click="toggleHitokoto">
-          {{ displayText }}
-        </span>
-      </Transition>
+      <span class="text" :class="{ typing: isTyping }" @click="toggleHitokoto">
+        {{ typedText }}<i class="cursor">|</i>
+      </span>
     </div>
     <Transition name="fade" mode="out-in">
       <i v-if="height === 'full'" class="iconfont icon-up" @click="scrollToHome" />
@@ -147,6 +145,35 @@ function scrollToHome() {
   scrollTo({ top: bannerDom.offsetHeight, behavior: 'smooth' });
 }
 
+// 打字机效果
+const typedText = ref('');
+const isTyping = ref(false);
+let typeTimer = null;
+
+const runTypewriter = (text) => {
+  if (typeTimer) {
+    clearInterval(typeTimer);
+    typeTimer = null;
+  }
+  isTyping.value = true;
+  typedText.value = '';
+  let i = 0;
+  typeTimer = setInterval(() => {
+    if (i < text.length) {
+      typedText.value += text[i];
+      i++;
+    } else {
+      clearInterval(typeTimer);
+      typeTimer = null;
+      isTyping.value = false;
+    }
+  }, 45);
+};
+
+watch(displayText, (newText) => {
+  runTypewriter(newText);
+}, { immediate: true });
+
 // 同步外部 store 的 bannerType
 const bannerType = ref(store.bannerType);
 watch(() => store.bannerType, val => (bannerType.value = val));
@@ -161,6 +188,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   pauseHitokotoCycle();
   document.removeEventListener('visibilitychange', handleVisibilityChange);
+  if (typeTimer) {
+    clearInterval(typeTimer);
+    typeTimer = null;
+  }
 });
 </script>
 
@@ -202,6 +233,15 @@ onBeforeUnmount(() => {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       line-clamp: 2;
+      .cursor {
+        font-style: normal;
+        font-weight: 300;
+        margin-left: 2px;
+        animation: blink 1s step-end infinite;
+      }
+      &.typing .cursor {
+        animation: blink 0.5s step-end infinite;
+      }
     }
   }
   .icon-up {
@@ -296,5 +336,9 @@ onBeforeUnmount(() => {
       display: none;
     }
   }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 </style>

@@ -34,7 +34,10 @@
 </template>
 
 <script setup>
+import { mainStore } from '@/store';
+
 const { theme } = useData();
+const store = mainStore();
 
 // 从 themeConfig 读取配置
 const config = computed(() => {
@@ -47,8 +50,18 @@ const config = computed(() => {
   );
 });
 
-// 弹窗显示状态
-const show = ref(config.value.enable ?? true);
+// 弹窗显示状态（默认隐藏，等 loading 结束后再显示）
+const show = ref(false);
+
+// 监听加载状态，加载完成后再显示弹窗，避免在加载动画前闪现
+watch(
+  () => store.loadingStatus,
+  (val) => {
+    if (!val && config.value.enable) {
+      show.value = true;
+    }
+  },
+);
 
 // 确定按钮
 const handleConfirm = () => {

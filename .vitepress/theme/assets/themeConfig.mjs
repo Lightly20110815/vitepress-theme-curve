@@ -216,6 +216,7 @@ export const themeConfig = {
     weather: { enable: true },                // 天气组件（需在主题/前端里实现数据源）
     nowPlaying: { enable: true },             // 此刻正在听（显示当前播放歌曲信息）
     dailyPoetry: { enable: true },            // 今日诗词（调用今日诗词 API）
+    siteTimer: { enable: true },               // 建站运行时长计时器
   },
 
   // ------------------------------------------------
