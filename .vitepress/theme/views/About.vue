@@ -113,18 +113,14 @@
             </div>
           </a>
           <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="credit-chip">
-            <span class="credit-avatar gemini">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
+            <span class="credit-avatar gemini">G</span>
             <div class="credit-info">
               <span class="credit-name">Gemini 2.5 Pro</span>
               <span class="credit-desc">AI 辅助</span>
             </div>
           </a>
           <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="credit-chip">
-            <span class="credit-avatar gpt">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 1.5L21 6.5V16.5L12 21.5L3 16.5V6.5L12 1.5Z" fill="currentColor"/><circle cx="9.5" cy="10.5" r="1.3" fill="#74AA9C"/><circle cx="14.5" cy="10.5" r="1.3" fill="#74AA9C"/><path d="M9.5 14.5c1.2 1.5 3.8 1.5 5 0" stroke="#74AA9C" stroke-width="1.2" stroke-linecap="round"/></svg>
-            </span>
+            <span class="credit-avatar gpt">GPT</span>
             <div class="credit-info">
               <span class="credit-name">ChatGPT</span>
               <span class="credit-desc">GPT-4o</span>
@@ -341,23 +337,20 @@ onMounted(() => {
               align-items: center;
               justify-content: center;
               overflow: hidden;
+              font-size: 0.8rem;
+              font-weight: 700;
+              color: #fff;
               background: var(--main-card-background);
               img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
               }
-              svg {
-                width: 22px;
-                height: 22px;
-              }
               &.gemini {
                 background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
-                color: #fff;
               }
               &.gpt {
                 background: #74aa9c;
-                color: #fff;
               }
             }
             .credit-info {
