@@ -59,55 +59,78 @@
       </div>
     </div>
     <div class="about-content" style="display: flex">
-      <div class="about-item">
-        <span class="tip">关于我？</span>
-        <span class="title2">写了也没人看的</span>
-        <p class="tip">我的死活没人在乎……</p>
-      </div>
-    </div>
-    <div class="about-content" style="display: flex">
-      <div class="about-item" style="width: 100%;">
-        <span class="tip">座右铭</span>
-        <span class="title1" style="margin-top: 20px">与你进退，</span>
-        <span class="title2">也共鸣。</span>
+      <div class="about-item hello" style="padding: 1.2rem 2rem;">
+        <SelfTyping />
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 1fr 1fr">
-      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-        <span class="tip">喜欢的音乐风格</span>
-        <span class="title2" style="margin-top: 20px; margin-right: 0;">VOCALOID</span>
+      <div class="about-item music-card">
+        <span class="card-emoji">🎵</span>
+        <span class="card-label">喜欢的音乐</span>
+        <span class="card-value">VOCALOID</span>
       </div>
-      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-        <span class="tip">喜欢的游戏</span>
-        <span class="title2" style="margin-top: 20px; margin-right: 0;">COLORFUL STAGE</span>
+      <div class="about-item game-card">
+        <span class="card-emoji">🎮</span>
+        <span class="card-label">喜欢的游戏</span>
+        <span class="card-value">COLORFUL STAGE</span>
       </div>
     </div>
-    <div class="about-content" style="grid-template-columns: 1fr 1fr 1fr">
-      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-        <span class="tip">诞</span>
-        <span class="title2" style="margin-top: 20px; margin-right: 0;">2011年</span>
+    <div class="about-content" style="grid-template-columns: 7fr 3fr">
+      <div class="about-item motto-card">
+        <span class="tip">座右铭</span>
+        <div class="motto-lines">
+          <span class="motto-line1">与你进退，</span>
+          <span class="motto-line2">也共鸣。</span>
+        </div>
       </div>
-      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-        <span class="tip">生</span>
-        <span class="title2" style="margin-top: 20px; margin-right: 0;">8月</span>
+      <div class="about-item birthday-card">
+        <span class="tip">诞生于</span>
+        <div class="birthday-big">{{ birthDateStr }}</div>
+        <div class="birthday-extra">
+          <span class="zodiac">{{ zodiacStr }}</span>
+          <span class="age">🌱 {{ ageYears }}岁</span>
+        </div>
+        <div class="birthday-countdown">
+          距下次生日还有 <strong>{{ daysToBirthday }}</strong> 天
+        </div>
       </div>
-      <div class="about-item" style="justify-content: center; align-items: center; text-align: center;">
-        <span class="tip">于</span>
-        <span class="title2" style="margin-top: 20px; margin-right: 0;">15日</span>
-      </div>
+    </div>
+    <div class="about-content" style="grid-template-columns: 1fr 1fr">
+      <StatusBadge />
+      <ActivityChart />
     </div>
     <div class="about-content" style="display: flex">
-      <div class="about-item" style="width: 100%;">
+      <div class="about-item credits-card">
         <span class="tip">特此感谢</span>
-        <p class="text" style="margin-top: 1rem;">
-          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">池鱼鱼</a>
-        </p>
-        <p class="text">
-          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">Gemini 2.5 Pro</a>
-        </p>
-        <p class="text">
-          <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">ChatGPT（GPT-4o）</a>
-        </p>
+        <div class="credits-list">
+          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer" class="credit-chip">
+            <span class="credit-avatar">
+              <img src="https://chiyu.it/images/logo/logo.webp" alt="池鱼鱼" />
+            </span>
+            <div class="credit-info">
+              <span class="credit-name">池鱼鱼</span>
+              <span class="credit-desc">主题原作者</span>
+            </div>
+          </a>
+          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="credit-chip">
+            <span class="credit-avatar">
+              <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" />
+            </span>
+            <div class="credit-info">
+              <span class="credit-name">Gemini 2.5 Pro</span>
+              <span class="credit-desc">AI 辅助</span>
+            </div>
+          </a>
+          <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="credit-chip">
+            <span class="credit-avatar">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/openai.svg" alt="ChatGPT" />
+            </span>
+            <div class="credit-info">
+              <span class="credit-name">ChatGPT</span>
+              <span class="credit-desc">GPT-4o</span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -126,12 +149,44 @@ const skillsData = [
   { name: "Vue", color: "#41b883", icon: "vue", link: "https://cn.vuejs.org/" },
   { name: "Node.js", color: "#026E00", icon: "nodejs", link: "https://nodejs.org/" },
   { name: "Python", color: "#3776AB", icon: "python", link: "https://www.python.org/" },
+  { name: "C++", color: "#00599C", icon: "a-C", custom: true, link: "https://isocpp.org/" },
   { name: "Docker", color: "#2496f2", icon: "docker", link: "https://www.docker.com/" },
   { name: "Git", color: "#F05032", icon: "git", link: "https://git-scm.com/" },
   { name: "ChatGPT", color: "#4AA181", icon: "chatgpt", link: "https://chat.openai.com/" },
 ];
 
 const statisticsData = ref(null);
+
+// 生日数据
+const birthDateStr = '2011年8月15日';
+const birthDate = new Date(2011, 7, 15);
+
+const zodiacSign = (month, day) => {
+  const signs = ['摩羯', '水瓶', '双鱼', '白羊', '金牛', '双子', '巨蟹', '狮子', '处女', '天秤', '天蝎', '射手'];
+  const days = [20, 19, 21, 20, 21, 22, 23, 23, 23, 24, 23, 22];
+  return signs[day <= days[month - 1] ? month - 1 : month % 12];
+};
+
+const zodiacStr = computed(() => {
+  const m = birthDate.getMonth() + 1;
+  const d = birthDate.getDate();
+  return `${zodiacSign(m, d)}座`;
+});
+
+const ageYears = computed(() => {
+  const now = new Date();
+  let age = now.getFullYear() - birthDate.getFullYear();
+  const m = now.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && now.getDate() < birthDate.getDate())) age--;
+  return age;
+});
+
+const daysToBirthday = computed(() => {
+  const now = new Date();
+  const next = new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+  if (next < now) next.setFullYear(next.getFullYear() + 1);
+  return Math.ceil((next - now) / (1000 * 60 * 60 * 24));
+});
 
 const getStatisticsData = async () => {
   if (theme.value.tongji && theme.value.tongji["51la"]) {
@@ -206,6 +261,139 @@ onMounted(() => {
         animation: gradientFlow 6s ease infinite;
         .title2 {
           line-height: 2;
+        }
+      }
+      &.music-card, &.game-card {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+        padding: 1.5rem;
+        color: #fff;
+        .card-emoji {
+          font-size: 2.5rem;
+          margin-bottom: 4px;
+        }
+        .card-label {
+          font-size: 13px;
+          opacity: 0.7;
+        }
+        .card-value {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+      }
+      &.music-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      &.game-card {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+      &.motto-card {
+        justify-content: center;
+        .motto-lines {
+          margin-top: 8px;
+          display: flex;
+          flex-direction: column;
+          .motto-line1 {
+            font-size: 36px;
+            font-weight: bold;
+            opacity: 0.5;
+            line-height: 1.2;
+          }
+          .motto-line2 {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fa7671 30%, #f45f7f 70%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+          }
+        }
+      }
+      &.credits-card {
+        .credits-list {
+          display: flex;
+          gap: 16px;
+          margin-top: 12px;
+          flex-wrap: wrap;
+          .credit-chip {
+            flex: 1;
+            min-width: 160px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: var(--main-card-second-background);
+            border: 1px solid var(--main-card-border);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--main-font-color);
+            .credit-avatar {
+              flex-shrink: 0;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
+              img, svg {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .credit-info {
+              display: flex;
+              flex-direction: column;
+              gap: 2px;
+              .credit-name {
+                font-size: 0.9rem;
+                font-weight: 600;
+              }
+              .credit-desc {
+                font-size: 0.7rem;
+                opacity: 0.5;
+              }
+            }
+            &:hover {
+              transform: translateY(-2px);
+              box-shadow: 0 8px 16px -4px var(--main-border-shadow);
+              border-color: var(--main-color);
+            }
+          }
+        }
+      }
+      &.birthday-card {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 4px;
+        .birthday-big {
+          font-size: 2rem;
+          font-weight: bold;
+          line-height: 1.3;
+        }
+        .birthday-extra {
+          display: flex;
+          gap: 12px;
+          font-size: 13px;
+          opacity: 0.7;
+          .zodiac {
+            color: var(--main-color);
+          }
+        }
+        .birthday-countdown {
+          margin-top: 8px;
+          font-size: 12px;
+          opacity: 0.6;
+          strong {
+            color: var(--main-color);
+          }
         }
       }
       &.pursuit {
