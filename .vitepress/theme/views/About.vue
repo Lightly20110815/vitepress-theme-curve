@@ -102,26 +102,15 @@
     <div class="about-content" style="display: flex">
       <div class="about-item" style="width: 100%;">
         <span class="tip">特此感谢</span>
-        <div class="thanks-list">
-          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">
-            <span class="thanks-avatar">
-              <img src="https://chiyu.it/images/logo/logo.webp" alt="池鱼鱼" />
-            </span>
-            <span class="thanks-name">池鱼鱼</span>
-          </a>
-          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
-            <span class="thanks-avatar">
-              <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" />
-            </span>
-            <span class="thanks-name">Gemini 2.5 Pro</span>
-          </a>
-          <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">
-            <span class="thanks-avatar">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/openai.svg" alt="ChatGPT" />
-            </span>
-            <span class="thanks-name">ChatGPT</span>
-          </a>
-        </div>
+        <p class="text" style="margin-top: 1rem;">
+          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">池鱼鱼</a>
+        </p>
+        <p class="text">
+          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">Gemini 2.5 Pro</a>
+        </p>
+        <p class="text">
+          <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">ChatGPT（GPT-4o）</a>
+        </p>
       </div>
     </div>
   </div>
@@ -197,40 +186,6 @@ onMounted(() => {
     font-size: 2.4rem;
     text-align: center;
     border: none;
-  }
-  .thanks-list {
-    display: flex;
-    gap: 20px;
-    margin-top: 12px;
-    flex-wrap: wrap;
-    a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--main-font-color);
-      transition: opacity 0.3s;
-      &:hover {
-        opacity: 0.7;
-      }
-      .thanks-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-      .thanks-name {
-        font-size: 0.95rem;
-      }
-    }
   }
   .about-content {
     display: grid;
