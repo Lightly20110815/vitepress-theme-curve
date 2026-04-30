@@ -1,6 +1,6 @@
 <template>
-  <!-- 时辰氛围 -->
-  <TimeAtmosphere />
+  <!-- Canvas 粒子背景（最底层） -->
+  <CanvasParticles />
   <!-- 背景图片 -->
   <Background />
   <!-- 加载提示 -->
