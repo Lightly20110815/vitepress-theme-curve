@@ -4,7 +4,6 @@
     <span class="typed-line">
       {{ displayText }}<i class="cursor" :class="{ typing: isTyping }">|</i>
     </span>
-    <span v-if="isAI" class="ai-badge">DeepSeek</span>
   </div>
 </template>
 
@@ -144,12 +143,14 @@ onMounted(async () => {
   if (cached) {
     phrases = cached;
     isAI.value = true;
-    setTimeout(() => typePhrase(phrases[0]), 400);
+    phraseIdx = Math.floor(Math.random() * phrases.length);
+    setTimeout(() => typePhrase(phrases[phraseIdx]), 400);
     return;
   }
 
-  // 立即用本地词库开始打字
-  setTimeout(() => typePhrase(phrases[0]), 400);
+  // 立即用本地词库开始打字，随机选一句
+  phraseIdx = Math.floor(Math.random() * phrases.length);
+  setTimeout(() => typePhrase(phrases[phraseIdx]), 400);
 
   // 后台请求 AI
   const aiPhrases = await fetchAIPhrases();

@@ -100,35 +100,26 @@
       <ActivityChart />
     </div>
     <div class="about-content" style="display: flex">
-      <div class="about-item credits-card">
+      <div class="about-item" style="width: 100%;">
         <span class="tip">特此感谢</span>
-        <div class="credits-list">
-          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer" class="credit-chip">
-            <span class="credit-avatar">
+        <div class="thanks-list">
+          <a href="https://chiyu.it" target="_blank" rel="noopener noreferrer">
+            <span class="thanks-avatar">
               <img src="https://chiyu.it/images/logo/logo.webp" alt="池鱼鱼" />
             </span>
-            <div class="credit-info">
-              <span class="credit-name">池鱼鱼</span>
-              <span class="credit-desc">主题原作者</span>
-            </div>
+            <span class="thanks-name">池鱼鱼</span>
           </a>
-          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="credit-chip">
-            <span class="credit-avatar">
+          <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">
+            <span class="thanks-avatar">
               <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" />
             </span>
-            <div class="credit-info">
-              <span class="credit-name">Gemini 2.5 Pro</span>
-              <span class="credit-desc">AI 辅助</span>
-            </div>
+            <span class="thanks-name">Gemini 2.5 Pro</span>
           </a>
-          <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="credit-chip">
-            <span class="credit-avatar">
+          <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer">
+            <span class="thanks-avatar">
               <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/openai.svg" alt="ChatGPT" />
             </span>
-            <div class="credit-info">
-              <span class="credit-name">ChatGPT</span>
-              <span class="credit-desc">GPT-4o</span>
-            </div>
+            <span class="thanks-name">ChatGPT</span>
           </a>
         </div>
       </div>
@@ -206,6 +197,40 @@ onMounted(() => {
     font-size: 2.4rem;
     text-align: center;
     border: none;
+  }
+  .thanks-list {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--main-font-color);
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.7;
+      }
+      .thanks-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .thanks-name {
+        font-size: 0.95rem;
+      }
+    }
   }
   .about-content {
     display: grid;
@@ -309,62 +334,6 @@ onMounted(() => {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
-          }
-        }
-      }
-      &.credits-card {
-        .credits-list {
-          display: flex;
-          gap: 16px;
-          margin-top: 12px;
-          flex-wrap: wrap;
-          .credit-chip {
-            flex: 1;
-            min-width: 160px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 16px;
-            border-radius: 12px;
-            background: var(--main-card-second-background);
-            border: 1px solid var(--main-card-border);
-            transition: all 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--main-font-color);
-            .credit-avatar {
-              flex-shrink: 0;
-              width: 40px;
-              height: 40px;
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              overflow: hidden;
-              img, svg {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
-            }
-            .credit-info {
-              display: flex;
-              flex-direction: column;
-              gap: 2px;
-              .credit-name {
-                font-size: 0.9rem;
-                font-weight: 600;
-              }
-              .credit-desc {
-                font-size: 0.7rem;
-                opacity: 0.5;
-              }
-            }
-            &:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 8px 16px -4px var(--main-border-shadow);
-              border-color: var(--main-color);
-            }
           }
         }
       }
