@@ -1,4 +1,6 @@
 <template>
+  <!-- 时辰氛围 -->
+  <TimeAtmosphere />
   <!-- 背景图片 -->
   <Background />
   <!-- 加载提示 -->
