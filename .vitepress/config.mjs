@@ -7,6 +7,7 @@ import {
   getAllCategories,
   getAllArchives,
 } from "./theme/utils/getPostData.mjs";
+import { getAllNotes, getNoteTags } from "./theme/utils/getNoteData.mjs";
 import { jumpRedirect } from "./theme/utils/commonTools.mjs";
 import { getThemeConfig } from "./init.mjs";
 import markdownConfig from "./theme/utils/markdownConfig.mjs";
@@ -16,6 +17,7 @@ import path from "path";
 
 // 获取全局数据
 const postData = await getAllPosts();
+const noteData = await getAllNotes();
 
 // 获取主题配置
 const themeConfig = await getThemeConfig();
@@ -47,6 +49,8 @@ export default withPwa(
       tagsData: getAllType(postData),
       categoriesData: getAllCategories(postData),
       archivesData: getAllArchives(postData),
+      noteData: noteData,
+      noteTagsData: getNoteTags(noteData),
     },
     // markdown
     markdown: {
@@ -59,7 +63,7 @@ export default withPwa(
       config: (md) => markdownConfig(md, themeConfig),
     },
     // 构建排除
-    srcExclude: ["**/README.md", "**/TODO.md"],
+    srcExclude: ["**/README.md", "**/TODO.md", "notes/**"],
     // transformHead
     transformPageData: async (pageData) => {
       // canonical URL

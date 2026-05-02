@@ -77,6 +77,10 @@ export const themeConfig = {
       ],
     },
     {
+      text: "随笔",
+      items: [{ text: "随笔贴文", link: "/pages/notes", icon: "quote" }],
+    },
+    {
       text: "友链",
       items: [{ text: "友情链接", link: "/pages/link", icon: "people" }],
     },

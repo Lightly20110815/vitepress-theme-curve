@@ -15,6 +15,8 @@
     <NotFound v-if="page.isNotFound" />
     <!-- 首页 -->
     <Home v-if="frontmatter.layout === 'home'" showHeader />
+    <!-- 随笔列表 -->
+    <Notes v-else-if="frontmatter.layout === 'notes'" showHeader />
     <!-- 页面 -->
     <template v-else>
       <!-- 文章页面 -->
@@ -67,6 +69,7 @@ const isPostPage = computed(() => {
   const routePath = decodeURIComponent(route.path);
   return routePath.includes("/posts/");
 });
+
 
 // 开启右键菜单
 const openRightMenu = (e) => {
