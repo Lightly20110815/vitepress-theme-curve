@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /pages/
-Allow: /posts/
-
-Sitemap: https://chiyu.it/sitemap.xml
