@@ -2,9 +2,12 @@
 export const config = { runtime: "edge" };
 
 const ALLOWED_ORIGINS = [
+  "https://ddnsy.vercel.app",
   "https://ddnsy.fun",
   "https://www.ddnsy.fun",
 ];
+
+const ALLOWED_GET_TASKS = ["self-typing", "randomquote"];
 
 const UPSTREAM_MODEL = "deepseek-chat";
 const UPSTREAM_API_URL = "https://api.deepseek.com/chat/completions";
@@ -159,6 +162,14 @@ export default async function handler(req: Request) {
   if (req.method === "GET") {
     const url = new URL(req.url);
     task = url.searchParams.get("task") || "";
+    if (!ALLOWED_GET_TASKS.includes(task)) {
+      return jsonResponse(
+        { error: `Method Not Allowed: task '${task}' cannot be accessed via GET` },
+        405,
+        { Allow: "POST" },
+        allowOrigin,
+      );
+    }
     params = Object.fromEntries(url.searchParams.entries());
     stream = false;
   } else if (req.method === "POST") {
@@ -208,14 +219,9 @@ export default async function handler(req: Request) {
   });
 
   if (!upstream.ok) {
-    const text = await upstream.text().catch(() => "");
-    return new Response(text || "Upstream error", {
-      status: upstream.status,
-      headers: {
-        "Access-Control-Allow-Origin": allowOrigin,
-        "Content-Type": upstream.headers.get("content-type") || "text/plain; charset=utf-8",
-      },
-    });
+    const errorText = await upstream.text().catch(() => "");
+    console.error(`[DeepSeek Upstream Error] HTTP ${upstream.status}: ${errorText}`);
+    return jsonResponse({ error: "upstream_error" }, 502, {}, allowOrigin);
   }
 
   const responseHeaders: Record<string, string> = {
