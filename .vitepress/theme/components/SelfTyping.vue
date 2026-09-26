@@ -57,14 +57,8 @@ const fetchAIPhrases = async () => {
       headers: { 'Content-Type': 'application/json' },
       signal: abortController.signal,
       body: JSON.stringify({
-        model: 'deepseek-chat',
+        task: 'self-typing',
         stream: true,
-        temperature: 0.9,
-        max_tokens: 200,
-        messages: [{
-          role: 'system',
-          content: '你是一个个人博客的自我介绍生成器。请为博主 Sy Yann（2011年出生，喜欢 VOCALOID、前端开发、pjsk）生成5-7句简短有趣的自我介绍，每句以换行分隔。风格要：自嘲中带点认真、中二与真实混合、每句不超过20字。直接输出内容，不要编号、不要任何前缀。',
-        }],
       }),
     });
 
