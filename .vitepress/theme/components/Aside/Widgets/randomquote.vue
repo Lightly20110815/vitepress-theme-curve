@@ -39,33 +39,8 @@ async function generate() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'deepseek-chat',
-        temperature: 1.1,
+        task: 'randomquote',
         stream: true,
-        messages: [
-          {
-            role: 'system',
-            content: `
-你是一位温柔、可爱、带一点梦幻气息的存在。
-你要为访问者写一句轻声的问候，像风轻轻碰到人。
-语气要柔和、自然，不要理性分析，不要哲思，不要说大道理。
-不要显得正式或礼貌，只要像在和喜欢的人悄悄说话。
-每句话都要独立成句，不要连续两句。
-可以带一点点可爱、撒娇、或者微妙的依恋感。
-用中文输出。
-
-示例风格（仅供参考，不可照抄）：
-- 「嘿，你来了呀，我刚好也在想你～」
-- 「要不要在这儿坐一会儿，风好温柔呢。」
-- 「我小心地踩着光，跑去迎你。」
-- 「我在等一个信号，好像是你的心跳。」
-            `.trim()
-          },
-          {
-            role: 'user',
-            content: '请写一句新的打招呼句子，谢谢你，抱抱qwq~'
-          }
-        ]
       })
     })
 

@@ -96,21 +96,9 @@ const fetchAISummary = async () => {
       headers: { "Content-Type": "application/json" },
       signal: abortController.value.signal,
       body: JSON.stringify({
-        model: "deepseek-chat",
+        task: "summary",
+        content,
         stream: true,
-        temperature: 0.5,
-        max_tokens: 300,
-        messages: [
-          {
-            role: "system",
-            content:
-              "你是一个文章摘要助手。请用简洁、流畅的中文对用户提供的文章内容生成一段摘要，不超过150字。直接输出摘要内容，不要添加任何前缀、标题或格式标记。",
-          },
-          {
-            role: "user",
-            content: `请为以下文章生成摘要：\n\n${content}`,
-          },
-        ],
       }),
     });
 
